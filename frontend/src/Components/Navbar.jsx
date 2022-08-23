@@ -36,8 +36,8 @@ export default function Navbar() {
 
   return (
     <>
-      <Box py={3} px={20}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+      <Box py={[1, 3]} px={[null, 20]} mb={10}>
+        <Flex h={[10, 16]} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -62,7 +62,7 @@ export default function Navbar() {
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
-            <Button variant={"ghosted"} colorScheme={"blue"} size={"sm"} mr={4}>
+            <Button variant={"ghosted"} colorScheme={"blue"} size={["xs", "sm"]} mr={4}>
               <RouterLink to={"/login"}>LOG IN</RouterLink>
             </Button>
             <Button
@@ -71,8 +71,10 @@ export default function Navbar() {
               borderColor={"blue.400"}
               borderRadius={"sm"}
               _hover={{ color: "white", bg: "blue.400" }}
-              size={"sm"}
+              size={["xs", "sm"]}
               mr={4}
+              px={7}
+              py={5}
             >
               <RouterLink to={"/signup"}>SIGN UP FREE</RouterLink>
             </Button>
