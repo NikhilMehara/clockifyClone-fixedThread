@@ -1,13 +1,13 @@
-import Footer from "./Components/Footer";
-import Navbar from "./Components/Navbar";
+// import Footer from "./Components/Footer";
+// import Navbar from "./Components/Navbar";
 import MainRoutes from "./Pages/MainRoutes";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <MainRoutes />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
