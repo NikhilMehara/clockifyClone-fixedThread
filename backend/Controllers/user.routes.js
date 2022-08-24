@@ -12,14 +12,14 @@ userController.post("/signup",(req,res)=>{
         bcrypt.hash(password, salt, async function(err, hash) {
             // Store hash in your password DB.
             if(err){
-                res.send("Try again");
+                res.status(400).send("Try again");
             }
             const user = new UserModel({
                 email,
                 password:hash,
             })
             await user.save();
-            res.send("Sign up is Successfull");
+            res.status(201).send("Sign up is Successfull");
         });
     });
 })
@@ -36,10 +36,10 @@ userController.post("/login",async (req,res)=>{
         // res === true
         if(result){
             let token = jwt.sign({email,userId}, process.env.SECRET);
-            return res.send({"message":"Login Succesfull", "token":token, "email":email})
+            return res.status(201).send({"message":"Login Succesfull", "token":token, "email":email})
         }
         else{
-            return res.send("Invalid credentials");
+            return res.status(401).send("Invalid credentials");
         }
     });
 })
