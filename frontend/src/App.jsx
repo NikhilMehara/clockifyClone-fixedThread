@@ -1,3 +1,4 @@
+import { Chat } from "./Components/Chat";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import MainRoutes from "./Pages/MainRoutes";
@@ -8,6 +9,8 @@ function App() {
       <Navbar />
       <MainRoutes />
       <Footer />
+      <Footer />
+      <Chat />
     </div>
   );
 }

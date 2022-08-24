@@ -710,13 +710,66 @@ const Homepage = () => {
         Clockify is the best rated time tracking software with 4,000+ reviews.
       </Text>
 
-      <Flex wrap={"nowrap"} flexDir={"row"} overflowX={"hidden"} justifyContent={"left"} mt={20} mb={20}>
+      <Flex
+        wrap={"nowrap"}
+        flexDir={"row"}
+        overflowX={"hidden"}
+        justifyContent={"left"}
+        mt={20}
+        mb={20}
+      >
         <Box minW={"2200px"}>
           <Image
             maxW={"100%"}
             src="https://clockify.me/assets/images/customer-feedback-logo-expanded-3.svg"
           ></Image>
         </Box>
+      </Flex>
+      <Heading
+        mt={2}
+        mb={2}
+        textAlign={"center"}
+        fontWeight={"400"}
+        size={["lg", "xl"]}
+        color={"gray.600"}
+      >
+        Start tracking time with Clockify
+      </Heading>
+      <Text textAlign={"center"} fontSize={["xs", "sm"]} color={"gray"}>
+        24/7 Support • Cancel Anytime • Free Forever
+      </Text>
+      <Flex flexDir={"column"} alignItems={"center"} mt={10}>
+        <Button
+          color={"white"}
+          p={[1, 7]}
+          boxShadow={"md"}
+          _hover={{ bg: "blue.400" }}
+          bgColor={"#03A9F4"}
+          borderBottom={"4px solid #008CCF"}
+          w={"280px"}
+          h={"56px"}
+        >
+          <Link to="/">
+            <Text fontWeight={400} fontSize={["xs", "md"]}>
+              CREATE FREE ACCOUNT
+            </Text>
+          </Link>
+        </Button>
+        <Button
+          p={0}
+          colorScheme={"none"}
+          color={"blue.400"}
+          _hover={{ textDecoration: "underline" }}
+        >
+          <Image
+            src={"https://clockify.me/assets/images/signed-up-icon.svg"}
+          ></Image>
+          <Text fontSize={"xs"} ml={"1"}>
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              134,602 people signed up last month
+            </a>
+          </Text>
+        </Button>
       </Flex>
     </div>
   );
