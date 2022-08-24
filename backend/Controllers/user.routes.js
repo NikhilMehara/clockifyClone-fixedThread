@@ -1,43 +1,47 @@
-const express = require("express");
-const UserModel = require("../Models/user.model");
-const bcrypt = require("bcrypt");
-var jwt = require("jsonwebtoken");
-require("dotenv").config();
+const express = require ("express");
+let jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
-const saltRounds = 10;
-
+const UserModel = require("../models/user.model");
 const userController = express.Router();
 
-userController.post("/register", async (req, res) => {
-  const { name, username, email, password } = req.body;
-  bcrypt.hash(password, saltRounds, async function (err, hash) {
-    if (err) {
-      return res.send("Please try again!");
-    }
-    const data = new UserModel({ name, username, email, password: hash });
-    data.save();
-    res.send({ message: "Signup successful!", data });
-  });
-});
+userController.post("/signup",(req,res)=>{
+    const {email,password}=req.body;
+    bcrypt.genSalt(8, function(err, salt) {
+        bcrypt.hash(password, salt, async function(err, hash) {
+            // Store hash in your password DB.
+            if(err){
+                res.send("Try again");
+            }
+            const user = new UserModel({
+                email,
+                password:hash,
+            })
+            await user.save();
+            res.send("Sign up is Successfull");
+        });
+    });
+})
 
-userController.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const user = await UserModel.findOne({ email });
-  if (!user) {
-    return res.send("Invalid Credentials");
-  }
-  const hash = user.password;
-  bcrypt.compare(password, hash, async function (err, result) {
-    if (result) {
-      const token = jwt.sign(
-        { email: user.email, userId: user._id },
-        process.env.SECRET_KEY
-      );
-      return res.send({ message: "Login Successful!", token, user });
-    } else {
-      return res.send("Invalid Credentials!");
+userController.post("/login",async (req,res)=>{
+    const {email,password}=req.body;
+    const user = await UserModel.findOne({email});
+    if(! user){
+        return res.send("Invalid Credentials");
     }
-  });
-});
+    const hash= user.password;
+    const userId=user._id;
+    bcrypt.compare(password, hash, function(err, result) {
+        // res === true
+        if(result){
+            let token = jwt.sign({email,userId}, process.env.SECRET);
+            return res.send({"message":"Login Succesfull", "token":token, "email":email})
+        }
+        else{
+            return res.send("Invalid credentials");
+        }
+    });
+})
 
 module.exports = userController;
