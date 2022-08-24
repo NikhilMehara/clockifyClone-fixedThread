@@ -360,13 +360,13 @@ const Homepage = () => {
             borderColor={"blue.400"}
           >
             <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
-              WINDOW
+              Window
             </Button>
             <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
-              MAC
+              Mac
             </Button>
             <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
-              LINUX
+              Linux
             </Button>
           </ButtonGroup>
         </VStack>
@@ -382,13 +382,13 @@ const Homepage = () => {
             borderColor={"blue.400"}
           >
             <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
-              EDGE
+              Edge
             </Button>
             <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
-              CHROME
+              Chrome
             </Button>
             <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
-              FIREFOX
+              Firefox
             </Button>
           </ButtonGroup>
         </VStack>
