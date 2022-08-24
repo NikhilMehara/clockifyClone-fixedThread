@@ -9,6 +9,7 @@ function App() {
       <Navbar />
       <MainRoutes />
       <Footer />
+      <Footer />
       <Chat />
     </div>
   );
