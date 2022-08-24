@@ -2,10 +2,15 @@ import {
   Box,
   Button,
   ButtonGroup,
+  Center,
+  Divider,
   Flex,
   Heading,
   Icon,
   Image,
+  List,
+  ListIcon,
+  ListItem,
   SimpleGrid,
   Switch,
   Text,
@@ -15,9 +20,64 @@ import React from "react";
 import { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { BiTargetLock } from "react-icons/bi";
+import { AiOutlineDollarCircle } from "react-icons/ai";
+import { RiTeamLine } from "react-icons/ri";
+import { BsClockHistory } from "react-icons/bs";
+import { GiCheckMark } from "react-icons/gi";
+
+export const ClockyCards = ({ icon, heading, text }) => {
+  return (
+    <Box
+      m={"auto"}
+      w={"85%"}
+      pt={"40px"}
+      pb={"50px"}
+      pl={"50px"}
+      pr={"50px"}
+      boxShadow="0 2px 6px 0 rgb(1 87 155 / 15%)"
+      style={{ transition: "all 0.1s ease-in" }}
+      cursor={"pointer"}
+      _hover={{ boxShadow: "2px 2px 5px 2px rgb(1 87 155 / 15%)" }}
+    >
+      <Flex justifyContent={"flex-start"} flexDir={"column"} gap={3}>
+        <Icon as={icon} w={"45px"} h={"44px"} color={"blue.400"} />
+        <Heading fontWeight={400} size={"lg"} color={"gray.700"}>
+          {heading}
+        </Heading>
+        <Text color={"gray"}>{text}</Text>
+        <Link to={"/"}>
+          <Text color={"blue.700"}>Learn more →</Text>{" "}
+        </Link>
+      </Flex>
+    </Box>
+  );
+};
 
 const Homepage = () => {
   const [isLight, setIsLight] = useState(true);
+  const clockyCardsData = [
+    {
+      icon: BiTargetLock,
+      heading: "Boost productivity",
+      text: "Track time you spend on activities, see where your time goes, and improve your time management skills.",
+    },
+    {
+      icon: AiOutlineDollarCircle,
+      heading: "Bill clients",
+      text: "Track billable time and expenses, show clients how much you've worked, see how much you've earned, and create invoices.",
+    },
+    {
+      icon: RiTeamLine,
+      heading: "Manage team",
+      text: "Track attendance for payroll and accounting, see who works on what, and manage workload among teams.",
+    },
+    {
+      icon: BsClockHistory,
+      heading: "Business intelligence",
+      text: "Track time and analyze your company's efficiency across projects, clients, departments, and employees.",
+    },
+  ];
   return (
     <div>
       <Box maxW={["", "80%"]} m={"auto"}>
@@ -64,14 +124,19 @@ const Homepage = () => {
         alignItems={"center"}
       >
         <Button
-          bgColor={"blue.500"}
           color={"white"}
           p={[1, 7]}
           boxShadow={"md"}
           _hover={{ bg: "blue.400" }}
+          bgColor={"#03A9F4"}
+          borderBottom={"4px solid #008CCF"}
+          w={"280px"}
+          h={"56px"}
         >
           <Link to="/">
-            <Text fontSize={["xs", "md"]}>START TRACKING TIME - IT'S FREE</Text>
+            <Text fontWeight={400} fontSize={["xs", "md"]}>
+              START TRACKING TIME — IT'S FREE!
+            </Text>
           </Link>
         </Button>
         <Button
@@ -359,13 +424,22 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Window
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Mac
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Linux
             </Button>
           </ButtonGroup>
@@ -381,13 +455,22 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Edge
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Chrome
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Firefox
             </Button>
           </ButtonGroup>
@@ -411,10 +494,16 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Android
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               iOS
             </Button>
           </ButtonGroup>
@@ -430,12 +519,205 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Any Device
             </Button>
           </ButtonGroup>
         </VStack>
       </SimpleGrid>
+      <Text textAlign={"center"} mt={"20"} fontSize={"4xl"} color={"gray.700"}>
+        Why track time with Clockify
+      </Text>
+      <SimpleGrid
+        w={[, "80%"]}
+        m={"auto"}
+        columns={{ base: "1", md: "2" }}
+        gap={"10"}
+        mt={20}
+      >
+        {clockyCardsData.map((ele) => {
+          return (
+            <ClockyCards
+              icon={ele.icon}
+              heading={ele.heading}
+              text={ele.text}
+            />
+          );
+        })}
+      </SimpleGrid>
+      <SimpleGrid
+        columns={{ base: "1", md: "2" }}
+        w={"50%"}
+        gap={[, 20]}
+        m={"auto"}
+        mt={20}
+        mb={20}
+      >
+        <Image src="https://clockify.me/assets/images/free-forever-clock-4.svg"></Image>
+        <Flex flexDir={"column"} h={"60%"} m={"auto"} w={"100%"}>
+          <Heading color={"blue.400"} size={"4xl"}>
+            FREE
+          </Heading>
+          <Heading color={"blue.400"} size={"xl"}>
+            FOREVER!
+          </Heading>
+          <List mt={5}>
+            <ListItem>
+              <ListIcon as={GiCheckMark} color={"blue.400"} />
+              Unlimited uses
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiCheckMark} color={"blue.400"} />
+              Unlimited tracking
+            </ListItem>
+            <ListItem>
+              <ListIcon as={GiCheckMark} color={"blue.400"} />
+              Unlimited projects
+            </ListItem>
+          </List>
+          <Link to={"/"}>
+            {" "}
+            <Text mt={5} color={"blue.400"} _hover={{ textDecor: "underline" }}>
+              Upgrade →
+            </Text>{" "}
+          </Link>
+        </Flex>
+      </SimpleGrid>
+      <Text textAlign={"center"} fontSize={"sm"} color={"gray"}>
+        #1 SUPPORT IN SOFTWARE
+      </Text>
+      <Heading
+        mt={2}
+        mb={2}
+        textAlign={"center"}
+        fontWeight={"400"}
+        size={["lg", "xl"]}
+        color={"gray.600"}
+      >
+        World-class customer support
+      </Heading>
+      <Text textAlign={"center"} fontSize={["lg", "2xl"]} color={"gray"}>
+        We're here 24 hours a day, every day of the week, including holidays.
+      </Text>
+      <SimpleGrid
+        columns={{ base: "2", md: "4" }}
+        gap={[2, 7]}
+        w={["90%", "57%"]}
+        m={"auto"}
+        mt={10}
+      >
+        <Flex alignItems={"flex-start"} gap={2}>
+          <Box>
+            <Image
+              mt={2}
+              src="https://clockify.me/assets/images/support-phone.svg"
+            ></Image>{" "}
+          </Box>
+          <Box>
+            <Heading fontWeight={"400"} size={["sm", "lg"]} color={"gray.600"}>
+              24/7
+            </Heading>
+            <Text color={"gray"} fontSize={["xs", "md"]}>
+              support anytime, anywhere
+            </Text>
+          </Box>
+        </Flex>
+        <Flex alignItems={"flex-start"} gap={2}>
+          <Box>
+            <Image
+              mt={2}
+              src="https://clockify.me/assets/images/support-mail.svg"
+            ></Image>{" "}
+          </Box>
+          <Box>
+            <Heading fontWeight={"400"} size={["sm", "lg"]} color={"gray.600"}>
+              1h
+            </Heading>
+            <Text color={"gray"} fontSize={["xs", "md"]}>
+              average response time
+            </Text>
+          </Box>
+        </Flex>
+        <Flex alignItems={"flex-start"} gap={2}>
+          <Box>
+            <Image
+              mt={2}
+              src="https://clockify.me/assets/images/support-heart.svg"
+            ></Image>{" "}
+          </Box>
+          <Box>
+            <Heading fontWeight={"400"} size={["sm", "lg"]} color={"gray.600"}>
+              95%
+            </Heading>
+            <Text color={"gray"} fontSize={["xs", "md"]}>
+              satisfaction score (12k+ ratings)
+            </Text>
+          </Box>
+        </Flex>
+        <Flex alignItems={"flex-start"} gap={2}>
+          <Box>
+            <Image
+              mt={2}
+              src="https://clockify.me/assets/images/support-uptime.svg"
+            ></Image>{" "}
+          </Box>
+          <Box>
+            <Heading fontWeight={"400"} size={["sm", "lg"]} color={"gray.600"}>
+              99.99%
+            </Heading>
+            <Text color={"gray"} fontSize={["xs", "md"]}>
+              highest uptime levels
+            </Text>
+          </Box>
+        </Flex>
+      </SimpleGrid>
+      <Flex flexDir={"column"} alignItems={"center"} mt={10}>
+        <Button
+          w={"10rem"}
+          variant={"outline"}
+          color={"blue.400"}
+          fontWeight="400"
+          _hover={{ bgColor: "blue.400", color: "white" }}
+          borderRadius={"md"}
+          borderColor={"blue.400"}
+        >
+          Contact us
+        </Button>
+        <Text fontSize={"xs"} color={"gray"} mt={3}>
+          EMAIL • PHONE • CHAT
+        </Text>
+      </Flex>
+
+      <Divider mt={20} mb={20} />
+
+      <Text textAlign={"center"} fontSize={"sm"} color={"gray"}>
+        #1 RATED SOFTWARE
+      </Text>
+      <Heading
+        mt={2}
+        mb={2}
+        textAlign={"center"}
+        fontWeight={"400"}
+        size={["lg", "xl"]}
+        color={"gray.600"}
+      >
+        Join millions of happy users
+      </Heading>
+      <Text textAlign={"center"} fontSize={["lg", "2xl"]} color={"gray"}>
+        Clockify is the best rated time tracking software with 4,000+ reviews.
+      </Text>
+
+      <Flex wrap={"nowrap"} flexDir={"row"} overflowX={"hidden"} justifyContent={"left"} mt={20} mb={20}>
+        <Box minW={"2200px"}>
+          <Image
+            maxW={"100%"}
+            src="https://clockify.me/assets/images/customer-feedback-logo-expanded-3.svg"
+          ></Image>
+        </Box>
+      </Flex>
     </div>
   );
 };
