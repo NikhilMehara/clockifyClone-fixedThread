@@ -751,7 +751,7 @@ const Homepage = () => {
         >
           <Link to="/">
             <Text fontWeight={400} fontSize={["xs", "md"]}>
-              CREATE FREE ACCOUNT
+            CREATE FREE ACCOUNT
             </Text>
           </Link>
         </Button>
