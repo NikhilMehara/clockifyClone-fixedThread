@@ -64,14 +64,17 @@ const Homepage = () => {
         alignItems={"center"}
       >
         <Button
-          bgColor={"blue.500"}
           color={"white"}
           p={[1, 7]}
           boxShadow={"md"}
           _hover={{ bg: "blue.400" }}
+          bgColor={"#03A9F4"}
+          borderBottom={"4px solid #008CCF"}
+          w={"280px"}
+          h={"56px"}
         >
           <Link to="/">
-            <Text fontSize={["xs", "md"]}>START TRACKING TIME - IT'S FREE</Text>
+            <Text fontWeight={400} fontSize={["xs", "md"]}>START TRACKING TIME — IT'S FREE!</Text>
           </Link>
         </Button>
         <Button
