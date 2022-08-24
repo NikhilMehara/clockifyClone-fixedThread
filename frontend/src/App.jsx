@@ -1,13 +1,16 @@
-// import Footer from "./Components/Footer";
-// import Navbar from "./Components/Navbar";
+import { Chat } from "./Components/Chat";
+import Footer from "./Components/Footer";
+import Navbar from "./Components/Navbar";
 import MainRoutes from "./Pages/MainRoutes";
 
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <MainRoutes />
-      {/* <Footer /> */}
+      <Footer />
+      <Footer />
+      <Chat />
     </div>
   );
 }
