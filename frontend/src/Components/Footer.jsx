@@ -1,6 +1,7 @@
 import {
   Box,
   Container,
+  HStack,
   Image,
   SimpleGrid,
   Stack,
@@ -22,6 +23,7 @@ export default function Footer() {
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
+      mt={20}
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid
@@ -38,10 +40,10 @@ export default function Footer() {
                 teams
               </Text>
             </Box>
-            <Text fontSize={"sm"}>
+            <Text fontSize={"sm"} _hover={{color: "blue.400"}}>
               <Link to={"/signup"}>SIGN UP FREE</Link>
             </Text>
-            <Text fontSize={"sm"}>
+            <Text fontSize={"sm"} _hover={{color: "blue.400"}}>
               <Link to={"/login"}>LOG IN</Link>
             </Text>
           </Stack>
@@ -66,13 +68,16 @@ export default function Footer() {
             <Link to="/">About us</Link>
             <Link to="/">Customers</Link>
             <Link to="/">
-              <Text fontSize={"xs"}>WE ALSO MAKE</Text>{" "}
+              <Text fontSize={"xs"}>WE ALSO MAKE</Text>
             </Link>
-            <Link to="/">
-              <Image src="https://clockify.me/assets/images/pumble-icon-color.svg"></Image>{" "}
-              Pumble
-            </Link>
-            <Link to="/"> <Image src="https://clockify.me/assets/images/plaky-icon-color.svg"></Image> Plaky</Link>
+            <HStack>
+              <Image src="https://clockify.me/assets/images/pumble-icon-color.svg"></Image>
+              <Link to="/">Pumble</Link>
+            </HStack>
+            <HStack>
+              <Image src="https://clockify.me/assets/images/plaky-icon-color.svg"></Image>
+              <Link to="/">Plaky</Link>
+            </HStack>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>SUPPORT</ListHeader>

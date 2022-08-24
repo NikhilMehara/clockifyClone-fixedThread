@@ -15,9 +15,63 @@ import React from "react";
 import { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { BiTargetLock } from "react-icons/bi";
+import { AiOutlineDollarCircle } from "react-icons/ai";
+import { RiTeamLine } from "react-icons/ri";
+import { BsClockHistory } from "react-icons/bs";
+
+export const ClockyCards = ({ icon, heading, text }) => {
+  return (
+    <Box
+      m={"auto"}
+      w={"85%"}
+      pt={"40px"}
+      pb={"50px"}
+      pl={"50px"}
+      pr={"50px"}
+      boxShadow="0 2px 6px 0 rgb(1 87 155 / 15%)"
+      style={{transition: "all 0.1s ease-in"}}
+      cursor = {"pointer"}
+      _hover={{ boxShadow: "2px 2px 5px 2px rgb(1 87 155 / 15%)" }}
+    >
+      <Flex justifyContent={"flex-start"} flexDir={"column"} gap={3}>
+        <Icon as={icon} w={"45px"} h={"44px"} color={"blue.400"} />
+        <Heading fontWeight={400} size={"lg"} color={"gray.700"}>
+          {heading}
+        </Heading>
+        <Text color={"gray"}>{text}</Text>
+        <Link to={"/"}>
+          <Text color={"blue.700"}>Learn more →</Text>{" "}
+        </Link>
+      </Flex>
+    </Box>
+  );
+};
 
 const Homepage = () => {
   const [isLight, setIsLight] = useState(true);
+  const clockyCardsData = [
+    {
+      icon: BiTargetLock,
+      heading: "Boost productivity",
+      text: "Track time you spend on activities, see where your time goes, and improve your time management skills.",
+    },
+    {
+      icon: AiOutlineDollarCircle,
+      heading: "Bill clients",
+      text: "Track billable time and expenses, show clients how much you've worked, see how much you've earned, and create invoices.",
+    },
+    {
+      icon: RiTeamLine,
+      heading: "Manage team",
+      text: "Track attendance for payroll and accounting, see who works on what, and manage workload among teams.",
+    },
+    {
+      icon: BsClockHistory,
+      heading: "Business intelligence",
+      text: "Track time and analyze your company's efficiency across projects, clients, departments, and employees.",
+    },
+  ];
   return (
     <div>
       <Box maxW={["", "80%"]} m={"auto"}>
@@ -74,7 +128,9 @@ const Homepage = () => {
           h={"56px"}
         >
           <Link to="/">
-            <Text fontWeight={400} fontSize={["xs", "md"]}>START TRACKING TIME — IT'S FREE!</Text>
+            <Text fontWeight={400} fontSize={["xs", "md"]}>
+              START TRACKING TIME — IT'S FREE!
+            </Text>
           </Link>
         </Button>
         <Button
@@ -362,13 +418,22 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Window
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Mac
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Linux
             </Button>
           </ButtonGroup>
@@ -384,13 +449,22 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Edge
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Chrome
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Firefox
             </Button>
           </ButtonGroup>
@@ -414,10 +488,16 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Android
             </Button>
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               iOS
             </Button>
           </ButtonGroup>
@@ -433,11 +513,34 @@ const Homepage = () => {
             variant={"outline"}
             borderColor={"blue.400"}
           >
-            <Button _hover={{ bgColor: "blue.400", color: "white" }} w={"110px"}>
+            <Button
+              _hover={{ bgColor: "blue.400", color: "white" }}
+              w={"110px"}
+            >
               Any Device
             </Button>
           </ButtonGroup>
         </VStack>
+      </SimpleGrid>
+      <Text textAlign={"center"} mt={"20"} fontSize={"4xl"} color={"gray.700"}>
+        Why track time with Clockify
+      </Text>
+      <SimpleGrid
+        w={[, "80%"]}
+        m={"auto"}
+        columns={{ base: "1", md: "2" }}
+        gap={"10"}
+        mt={20}
+      >
+        {clockyCardsData.map((ele) => {
+          return (
+            <ClockyCards
+              icon={ele.icon}
+              heading={ele.heading}
+              text={ele.text}
+            />
+          );
+        })}
       </SimpleGrid>
     </div>
   );
