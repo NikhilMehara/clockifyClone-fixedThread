@@ -31,16 +31,12 @@ import {
   FiBell,
   FiChevronDown,
 } from "react-icons/fi";
-
-import { ReactText } from "react";
-
 import { MdAccessTime } from "react-icons/md";
 import { BsCalendar3 } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import { IoMdStats } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
 import { RiFunctionLine, RiFileList3Line } from "react-icons/ri";
-
 import { GrTag, GrCircleQuestion } from "react-icons/gr";
 import Projects from './../Pages/Projects';
 const LinkItems = [
