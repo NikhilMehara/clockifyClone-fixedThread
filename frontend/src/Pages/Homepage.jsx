@@ -25,6 +25,7 @@ import { AiOutlineDollarCircle } from "react-icons/ai";
 import { RiTeamLine } from "react-icons/ri";
 import { BsClockHistory } from "react-icons/bs";
 import { GiCheckMark } from "react-icons/gi";
+import Testimonials from "../Components/Testimonials";
 
 export const ClockyCards = ({ icon, heading, text }) => {
   return (
@@ -76,6 +77,153 @@ const Homepage = () => {
       icon: BsClockHistory,
       heading: "Business intelligence",
       text: "Track time and analyze your company's efficiency across projects, clients, departments, and employees.",
+    },
+  ];
+
+  const TestimonialsR1 = [
+    {
+      title: "Trackers don't get much better than this",
+      feedback:
+        "I track my time for all the tasks I perform; work-related and other.",
+      client: "— Ivan Arsenov, Recruitment Manager",
+    },
+    {
+      title: "Very useful and intuitive",
+      feedback:
+        "Extremely comfortable. Ads free. Amazing in terms of customer support.",
+      client: "— Ivan Napolskykh, Software Engineer,",
+    },
+    {
+      title: "Great experience",
+      feedback: "It has really helped me become more organized.",
+      client: "— Lauren Leonard, Illustrator",
+    },
+    {
+      title: "A game-changer for remote work",
+      feedback:
+        "I can track on my phone - a few taps and I'm ready to get onto my work.",
+      client: "— Kerri MacKay, Coordinator",
+    },
+    {
+      title: "It has greatly improved our business",
+      feedback:
+        "Before Clockify we had no idea of how long we were spending on each event.",
+      client: "— Hilary Raeside, Executive Assistant",
+    },
+    {
+      title: "Grows with you!",
+      feedback:
+        "I love how Clockify allows my contractors to independently log billable hours.",
+      client: "— Cameron Suorsa, Entrepreneur",
+    },
+    {
+      title: "An amazing experience!",
+      feedback:
+        "Works exactly like you'd hope, feature-rich, and has helped us realize profits.",
+      client: "— Torre Capistran, Entrepreneur",
+    },
+    {
+      title: "Affordable price and support",
+      feedback:
+        "New features appearing every month. Great and helpful customer support.",
+      client: "— Maciej Tkaczyk, Manager",
+    },
+  ];
+  const TestimonialsR2 = [
+    {
+      title: "Fantastic from start to finish",
+      feedback: "I absolutely love how this software has so many features",
+      client: "— Ollie Yates, CEO",
+    },
+    {
+      title: "The only app to keep you accountable",
+      feedback:
+        "The best app out there which allows us to keep a tab on our productivity.",
+      client: "— Ze Belchior, Managing Director,",
+    },
+    {
+      title: "One of the best values available online",
+      feedback:
+        "Really good. Overall, this is a TREMENDOUS value for the price.",
+      client: "— Patrick Carver, Entrepreneur",
+    },
+    {
+      title: "Best time tracker",
+      feedback: "Clockify has become a basic in my set of freelance tools.",
+      client: "— Luis Miguel Rivas Zepeda, Software Engineer",
+    },
+    {
+      title: "Seamless time tracking",
+      feedback:
+        "Clockify is so easy to use and intuitive. The learning curve is almost none.",
+      client: "— Sheila Zayas, Graphic Design",
+    },
+    {
+      title: "Clockify is scary good!",
+      feedback:
+        "It is a powerful and often frightening insight into your own behavior.",
+      client: "— Skyler Bird, Web Designer",
+    },
+    {
+      title: "Finally an intuitive online time logger",
+      feedback:
+        "I like that it is available to me online and can use it wherever I am.",
+      client: "— Michele Wong, Entrepreneur",
+    },
+    {
+      title: "Amazing timer that gets the job done",
+      feedback:
+        "Gives a very clear idea about where my time is being spent. It helps in self-development!",
+      client: "— Anirudh, Consulting Analyst",
+    },
+  ];
+  const TestimonialsR3 = [
+    {
+      title: "Must-use productivity software",
+      feedback: "Time-tracking is smoother, productivity is easier.",
+      client: "— Ellen Mubwanda, Copywriter",
+    },
+    {
+      title: "May be the best time tracker there is!",
+      feedback:
+        "Clockify has been an essential tool for our team to track time on a daily basis.",
+      client: "— Camille Ang, Entrepreneur",
+    },
+    {
+      title: "Works great for startups",
+      feedback:
+        "We grew from a couple people to almost 80 and it worked perfectly the whole time!",
+      client: "— Zachary Gaskill, Sales Manager",
+    },
+    {
+      title: "Fantastic",
+      feedback:
+        "Makes it incredibly easy to record time and attach pdf reports to invoices.",
+      client: "— David Jackson, Consultant",
+    },
+    {
+      title: "Best time tracking software!",
+      feedback:
+        "I use Clockify for work, but it also lets me know exactly what I am doing in my day!",
+      client: "— Marc Wolfe, Marketing Manager",
+    },
+    {
+      title: "Best timesheet software on the market",
+      feedback:
+        "Easy to use. Quick to maneuver. Excellent reporting and administration.",
+      client: "— Anurag K, Database Engineer,",
+    },
+    {
+      title: "Wonderful for tracking productivity",
+      feedback:
+        "I enjoy it so much I use outside of work to track my own personal self-development.",
+      client: "— Jessup S, Operations Associate",
+    },
+    {
+      title: "I feel more productive!",
+      feedback:
+        "It's really encouraging to look back and see how much I've accomplished!",
+      client: "— Kristen Eisentrager, Creative Coordinator",
     },
   ];
   return (
@@ -725,8 +873,11 @@ const Homepage = () => {
           ></Image>
         </Box>
       </Flex>
+      <Testimonials data={TestimonialsR1} direction={"left"} />
+      <Testimonials data={TestimonialsR2} direction={"right"} />
+      <Testimonials data={TestimonialsR3} direction={"left"} />
       <Heading
-        mt={2}
+        mt={20}
         mb={2}
         textAlign={"center"}
         fontWeight={"400"}
