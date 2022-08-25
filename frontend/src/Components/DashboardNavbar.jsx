@@ -42,6 +42,7 @@ import { VscAccount } from "react-icons/vsc";
 import { RiFunctionLine, RiFileList3Line } from "react-icons/ri";
 
 import { GrTag, GrCircleQuestion } from "react-icons/gr";
+import Projects from './../Pages/Projects';
 const LinkItems = [
   { name: "TIME TRACKER", icon: MdAccessTime },
   { name: "CALENDAR", icon: BsCalendar3 },
@@ -62,6 +63,7 @@ export default function DashboardNavbar({ children }) {
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
+      
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
@@ -73,14 +75,19 @@ export default function DashboardNavbar({ children }) {
       >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
+          
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
+      
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
+        <Projects/>
       </Box>
+      
     </Box>
+
   );
 }
 
