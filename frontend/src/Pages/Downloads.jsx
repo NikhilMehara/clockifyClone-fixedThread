@@ -20,7 +20,7 @@ const Downloads = () => {
       <Headers />
 
       <Box bg={"#f7fcff"} p="4rem">
-        <Text fontSize={["1xl","2xl"]} textAlign="center" pt="2rem"pb="2rem">
+        <Text fontSize={["1xl", "2xl"]} textAlign="center" pt="2rem" pb="2rem">
           Start tracking time with Clockify
         </Text>
         <VStack>
@@ -84,11 +84,11 @@ const Headers = () => {
         online.
       </Text>
       <Box>
-        <Box>
+        <Box pt="3" pb="3">
           <DeviceDiff />
         </Box>
 
-        <Box w={["20rem", "30rem", "50rem"]}>
+        <Box w={["20rem", "35rem", "50rem"]}>
           <BadgeWrapper data={textWrite} />
         </Box>
         <VStack justifyContent="center">
@@ -112,13 +112,19 @@ const DeviceDiff = () => {
     <Box
       display={"flex"}
       justifyContent={"center"}
-      gap={"2"}
+      gap={["2","3","5"]}
       p={"2"}
       flexWrap={"wrap"}
     >
       {DeviceApp?.map((el, index) => (
         <UnorderedList key={index}>
-          <ListItem cursor={"pointer"} color={"blue"}>
+          <ListItem
+            cursor={"pointer"}
+            color={"#03a9f4"}
+            fontWeight={"600"}
+            fontSize={["1.0rem","1.2rem","1.5rem"]}
+            _hover={{ textDecoration: "underline" }}
+          >
             {el}
           </ListItem>
         </UnorderedList>
@@ -176,11 +182,11 @@ const BadgeWrapper = ({ data }) => {
           placement="top"
         >
           <Badge
-            colorScheme="green"
-            p="1"
+            bg="#e1f5fe"
             _hover={{ bg: "#03a9f4", color: "#fff" }}
             ml={"3"}
             mt="2"
+            fontWeight
           >
             {" "}
             {el.name}
