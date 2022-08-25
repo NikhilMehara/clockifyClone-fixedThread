@@ -10,6 +10,9 @@ import {
   UnorderedList,
   ListItem,
   Tooltip,
+  Heading,
+  Flex,
+
 } from "@chakra-ui/react";
 import { FaUsers } from "react-icons/fa";
 import styles from "./download.style.module.css";
@@ -20,44 +23,52 @@ const Downloads = () => {
       <Headers />
 
       <Box bg={"#f7fcff"} p="4rem">
-        <Text fontSize={["1xl", "2xl"]} textAlign="center" pt="2rem" pb="2rem">
-          Start tracking time with Clockify
-        </Text>
-        <VStack>
-          <Button
-            color={"white"}
-            p={[1, 7]}
-            boxShadow={"md"}
-            _hover={{ bg: "blue.400" }}
-            bgColor={"#03A9F4"}
-            borderBottom={"4px solid #008CCF"}
-            w={"280px"}
-            h={"56px"}
-          >
+      <Heading
+        mt={20}
+        mb={2}
+        textAlign={"center"}
+        fontWeight={"400"}
+        size={["lg", "xl"]}
+        color={"gray.600"}
+      >
+        Start tracking time with Clockify
+      </Heading>
+      <Text textAlign={"center"} fontSize={["xs", "sm"]} color={"gray"}>
+        24/7 Support • Cancel Anytime • Free Forever
+      </Text>
+      <Flex flexDir={"column"} alignItems={"center"} mt={10}>
+        <Button
+          color={"white"}
+          p={[1, 7]}
+          boxShadow={"md"}
+          _hover={{ bg: "blue.400" }}
+          bgColor={"#03A9F4"}
+          borderBottom={"4px solid #008CCF"}
+          w={"280px"}
+          h={"56px"}
+        >
+          <Link to="/">
+            <Text fontWeight={400} fontSize={["xs", "md"]}>
+              CREATE FREE ACCOUNT
+            </Text>
+          </Link>
+        </Button>
+        <Button
+          p={0}
+          colorScheme={"none"}
+          color={"blue.400"}
+          _hover={{ textDecoration: "underline" }}
+        >
+          <Image
+            src={"https://clockify.me/assets/images/signed-up-icon.svg"}
+          ></Image>
+          <Text fontSize={"xs"} ml={"1"}>
             <Link to="/">
-              <Text fontWeight={400} fontSize={["xs", "md"]}>
-                CREATE FREE ACCOUNT
-              </Text>
+              134,602 people signed up last month
             </Link>
-          </Button>
-          <Button
-            p={0}
-            colorScheme={"none"}
-            color={"blue.400"}
-            _hover={{ textDecoration: "underline" }}
-          >
-            <HStack>
-              <Image
-                src={"https://clockify.me/assets/images/signed-up-icon.svg"}
-              ></Image>
-              <Text fontSize={"xs"} ml={"1"}>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
-                  134,602 people signed up last month
-                </a>
-              </Text>
-            </HStack>
-          </Button>
-        </VStack>
+          </Text>
+        </Button>
+        </Flex>
       </Box>
     </Box>
   );
@@ -75,9 +86,12 @@ const Headers = () => {
         mt="5rem"
         gap={"2"}
       >
-        <Text pt="3" pb="3">
+        <Heading  
+        fontWeight={"400"}
+        size={["lg", "2xl"]}
+        color={"gray.600"} pt="1" pb="4">
           Time tracking apps
-        </Text>
+        </Heading>
       </Box>
       <Text>
         Install Clockify and track time from anywhere — everything is synced

@@ -48,7 +48,7 @@ const LinkItems = [
   { name: "DASHBOARD", icon: RiFunctionLine },
   { name: "REPORTS", icon: IoMdStats },
   { name: "PORJECTS", icon: RiFileList3Line },
-  { name: "TEAM", icon: GrGroup },
+  { name: "TEAM", icon: GrGroup, span: "ANALYZE" },
   { name: "CLIENTS", icon: VscAccount },
   { name: "TAGS", icon: GrTag },
   { name: "SETTINGS", icon: FiSettings },
@@ -69,7 +69,7 @@ export default function DashboardNavbar({ children }) {
         onClose={onClose}
         returnFocusOnClose={false}
         onOverlayClick={onClose}
-        size="full"
+        size="xs"
       >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
@@ -101,9 +101,14 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
-          {link.name}
-        </NavItem>
+        <Box>
+          <Text fontSize={"sm"} ml={"7"}>
+            {link?.span}
+          </Text>
+          <NavItem key={link.name} icon={link.icon}>
+            {link.name}
+          </NavItem>
+        </Box>
       ))}
     </Box>
   );
@@ -124,7 +129,7 @@ const NavItem = ({ icon, children, ...rest }) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: "cyan.400",
+          bg: "#ccced0",
           color: "white",
         }}
         {...rest}
@@ -161,7 +166,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
       <IconButton
         display={{ base: "flex", md: "none" }}
         onClick={onOpen}
-        variant="outline"
+        variant="none"
         aria-label="open menu"
         icon={<FiMenu />}
       />
@@ -175,22 +180,36 @@ const MobileNav = ({ onOpen, ...rest }) => {
       />
 
       <HStack spacing={{ base: "0", md: "6" }}>
-        <Text>Name' workspace</Text>
-        <Text border={"1px solid #8ad9fa"} fontSize={["2","8","12"]} color={"#8ad7fa"} _hover={{bg:"#8ad7fa",color:"#fff"}} p={[1]}>UPGRADE</Text>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          borderLeft={"1px solid "}
-          icon={<FiBell />}
-        />
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          borderLeft={"1px solid "}
-          icon={<GrCircleQuestion />}
-        />
+        <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
+          <Text>Name' workspace</Text>
+          <Text
+            border={"1px solid #8ad9fa"}
+            fontSize={["2", "8", "12"]}
+            color={"#8ad7fa"}
+            _hover={{ bg: "#8ad7fa", color: "#fff" }}
+            p={[1]}
+          >
+            UPGRADE
+          </Text>
+          <Box borderLeft={"1px solid grey"} borderStyle={"dotted"}>
+            <IconButton
+              size="lg"
+              variant="ghost"
+              aria-label="open menu"
+              icon={<GrCircleQuestion />}
+            />
+          </Box>
+        </HStack>
+
+        <Box borderLeft={"1px solid grey"} borderStyle={"dotted"}>
+          <IconButton
+            size="lg"
+            variant="ghost"
+            aria-label="open menu"
+            icon={<FiBell />}
+          />
+        </Box>
+
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
