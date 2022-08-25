@@ -5,6 +5,7 @@ import SignWrite from '../Components/ArfCompo/SignWrite'
 
 const Signup = () => {
   return (
+
     <div>
       <SignNavbar/>
       <SignWrite/>
