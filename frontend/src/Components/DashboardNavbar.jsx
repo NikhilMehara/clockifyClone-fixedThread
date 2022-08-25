@@ -191,24 +191,32 @@ const MobileNav = ({ onOpen, ...rest }) => {
           >
             UPGRADE
           </Text>
-          <Box borderLeft={"1px solid grey"} borderStyle={"dotted"}>
+          <Box
+          
+          >
             <IconButton
+              borderLeft={"1px solid grey"}
+          borderRadius="none"
+              borderStyle={"dotted"}
               size="lg"
               variant="ghost"
               aria-label="open menu"
               icon={<GrCircleQuestion />}
             />
-          </Box>
-        </HStack>
-
-        <Box borderLeft={"1px solid grey"} borderStyle={"dotted"}>
-          <IconButton
+             <IconButton
+              borderRadius="none"
+               borderLeft={"1px solid grey"}
+               borderRight={"1px solid grey"}
+               borderStyle={"dotted"}
             size="lg"
             variant="ghost"
             aria-label="open menu"
             icon={<FiBell />}
           />
-        </Box>
+          </Box>
+        </HStack>
+
+       
 
         <Flex alignItems={"center"}>
           <Menu>
