@@ -12,7 +12,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="/features" element={<Features />}></Route>
-        <Route path="/downloads" element={<Downloads />}></Route>
+        <Route path="/download" element={<Downloads />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
       </Routes>
