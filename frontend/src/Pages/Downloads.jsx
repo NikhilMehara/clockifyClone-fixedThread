@@ -20,7 +20,7 @@ const Downloads = () => {
       <Headers />
 
       <Box bg={"#f7fcff"} p="4rem">
-        <Text fontSize={["md","lg"]} textAlign="center" pt="2rem">
+        <Text fontSize={["1xl","2xl"]} textAlign="center" pt="2rem"pb="2rem">
           Start tracking time with Clockify
         </Text>
         <VStack>

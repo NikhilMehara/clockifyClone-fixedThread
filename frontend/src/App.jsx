@@ -1,8 +1,10 @@
-import Downloads from './Pages/Downloads';
+import DashboardNavbar from "./Components/DashboardNavbar";
 function App() {
-  return <div className="App">
-    <Downloads/>
-  </div>;
+  return (
+    <div className="App">
+      <DashboardNavbar />
+    </div>
+  );
 }
 
 export default App;
