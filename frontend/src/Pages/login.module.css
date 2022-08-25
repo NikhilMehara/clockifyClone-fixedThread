@@ -1,0 +1,28 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.log{
+    width:60%;
+    /* border: 1px solid black; */
+}
+.imag{
+    width:40%;
+    /* background-color: #673AB7; */
+    /* border: 1px solid black; */
+}
+@media only screen and (max-width: 800px) {
+    .container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .log{
+        width: 100%;
+    }
+    .imag{
+        width:100%;
+    }
+  }

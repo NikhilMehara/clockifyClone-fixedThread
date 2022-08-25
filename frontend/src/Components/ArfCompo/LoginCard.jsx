@@ -15,7 +15,7 @@ import {
 import GoogleButton from './Googlebutton';
 
   
-  export default function Signupcard() {
+  export default function LoginCard() {
     return (
       <Flex
         minH={'1vh'}
@@ -29,7 +29,7 @@ import GoogleButton from './Googlebutton';
             p={8}>
             <Stack bg={useColorModeValue('white')} spacing={4}>
               <FormControl bg={useColorModeValue('white')} id="email">
-                <FormLabel bg={useColorModeValue('white')}>Sign Up</FormLabel>
+                <FormLabel bg={useColorModeValue('white')}>Log In</FormLabel>
                 <Input placeholder='Enter Email' type="email" />
               </FormControl>
               <FormControl bg={useColorModeValue('white')} id="password">
@@ -40,16 +40,16 @@ import GoogleButton from './Googlebutton';
                 <Stack bg={useColorModeValue('white')}
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}>
-                  <Checkbox bg={useColorModeValue('white')}>I agree to the</Checkbox>
-                  <Link color={'#03A9F4'}>Terms Of Use</Link>
+                  <Checkbox bg={useColorModeValue('white')}>Stay logged in</Checkbox>
+                  <Link color={'#03A9F4'}>Forgot Password?</Link>
                 </Stack>
                 <Button
-                  bg={'#03A9F4'}
+                  bg={'blue.300'}
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
                   }}>
-                  CREATE FREE ACCOUNT
+                  Log In
                 </Button>
                 <GoogleButton/>
               </Stack>
