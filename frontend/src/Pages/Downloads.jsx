@@ -20,29 +20,44 @@ const Downloads = () => {
       <Headers />
 
       <Box bg={"#f7fcff"} p="4rem">
-        <Text fontSize={"3xl"} textAlign="center" pt="2rem">
+        <Text fontSize={["1xl", "2xl"]} textAlign="center" pt="2rem" pb="2rem">
           Start tracking time with Clockify
         </Text>
-        <Box display="flex" justifyContent="center" pt="2rem" pb="0.2rem">
+        <VStack>
           <Button
-            bg={"#0277bd"}
-            border={"none"}
-            color="#fff"
-            _hover={{ bg: "#0397bd" }}
-            pt="6"
-            pb="6"
-            pl="14"
-            pr="14"
+            color={"white"}
+            p={[1, 7]}
+            boxShadow={"md"}
+            _hover={{ bg: "blue.400" }}
+            bgColor={"#03A9F4"}
+            borderBottom={"4px solid #008CCF"}
+            w={"280px"}
+            h={"56px"}
           >
-            CREATE FREE ACCOUNT
+            <Link to="/">
+              <Text fontWeight={400} fontSize={["xs", "md"]}>
+                CREATE FREE ACCOUNT
+              </Text>
+            </Link>
           </Button>
-        </Box>
-        <HStack justifyContent="center" pb="2rem">
-          <FaUsers />
-          <Text _hover={{ textDecoration: "underline" }} cursor="pointer">
-            136,180 people signed up last month
-          </Text>
-        </HStack>
+          <Button
+            p={0}
+            colorScheme={"none"}
+            color={"blue.400"}
+            _hover={{ textDecoration: "underline" }}
+          >
+            <HStack>
+              <Image
+                src={"https://clockify.me/assets/images/signed-up-icon.svg"}
+              ></Image>
+              <Text fontSize={"xs"} ml={"1"}>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                  134,602 people signed up last month
+                </a>
+              </Text>
+            </HStack>
+          </Button>
+        </VStack>
       </Box>
     </Box>
   );
@@ -60,18 +75,20 @@ const Headers = () => {
         mt="5rem"
         gap={"2"}
       >
-        <Text>Time tracking apps</Text>
+        <Text pt="3" pb="3">
+          Time tracking apps
+        </Text>
       </Box>
       <Text>
         Install Clockify and track time from anywhere — everything is synced
         online.
       </Text>
       <Box>
-        <Box>
+        <Box pt="3" pb="3">
           <DeviceDiff />
         </Box>
 
-        <Box w={["20rem", "30rem", "50rem"]}>
+        <Box w={["20rem", "35rem", "50rem"]}>
           <BadgeWrapper data={textWrite} />
         </Box>
         <VStack justifyContent="center">
@@ -95,13 +112,19 @@ const DeviceDiff = () => {
     <Box
       display={"flex"}
       justifyContent={"center"}
-      gap={"2"}
+      gap={["2","3","5"]}
       p={"2"}
       flexWrap={"wrap"}
     >
       {DeviceApp?.map((el, index) => (
         <UnorderedList key={index}>
-          <ListItem cursor={"pointer"} color={"blue"}>
+          <ListItem
+            cursor={"pointer"}
+            color={"#03a9f4"}
+            fontWeight={"600"}
+            fontSize={["1.0rem","1.2rem","1.5rem"]}
+            _hover={{ textDecoration: "underline" }}
+          >
             {el}
           </ListItem>
         </UnorderedList>
@@ -111,15 +134,39 @@ const DeviceDiff = () => {
 };
 
 const textWrite = [
-  { name: "Idle detection",span:"Stop Timer from Tracking time you speed away fron your computer" },
-  { name: " Auto start/stop",span:"Automatically start or stop the timer when you turn on your computer or browser." },
-  { name: " Offline mode" ,span:"Get notification when you forgatto start a timer."},
-  { name: " Default project",span:"Stop Timer from Tracking time you speed away fron your computer" },
-  { name: "Reminders",span:"Get notification when you forgatto start a timer." },
+  {
+    name: "Idle detection",
+    span: "Stop Timer from Tracking time you speed away fron your computer",
+  },
+  {
+    name: " Auto start/stop",
+    span: "Automatically start or stop the timer when you turn on your computer or browser.",
+  },
+  {
+    name: " Offline mode",
+    span: "Get notification when you forgatto start a timer.",
+  },
+  {
+    name: " Default project",
+    span: "Stop Timer from Tracking time you speed away fron your computer",
+  },
+  {
+    name: "Reminders",
+    span: "Get notification when you forgatto start a timer.",
+  },
   { name: "Pomodoro timer" },
-  { name: "Auto tracker", span:"Get notification when you forgatto start a timer."},
-  { name: "Expenses",span:"Stop Timer from Tracking time you speed away fron your computer" },
-  { name: "Time off" ,span:"Get notification when you forgatto start a timer."},
+  {
+    name: "Auto tracker",
+    span: "Get notification when you forgatto start a timer.",
+  },
+  {
+    name: "Expenses",
+    span: "Stop Timer from Tracking time you speed away fron your computer",
+  },
+  {
+    name: "Time off",
+    span: "Get notification when you forgatto start a timer.",
+  },
 ];
 
 const BadgeWrapper = ({ data }) => {
@@ -127,14 +174,21 @@ const BadgeWrapper = ({ data }) => {
     <>
       {data.map((el, index) => (
         <Tooltip
-          hasArrow
           key={index}
           label={el.span}
+          hasArrow
           bg="black"
           color="#fff"
-          placement="top-start"
+          placement="top"
         >
-          <Badge colorScheme="green" ml={"2"}>
+          <Badge
+            bg="#e1f5fe"
+            _hover={{ bg: "#03a9f4", color: "#fff" }}
+            ml={"3"}
+            mt="2"
+            fontWeight
+          >
+            {" "}
             {el.name}
           </Badge>
         </Tooltip>
