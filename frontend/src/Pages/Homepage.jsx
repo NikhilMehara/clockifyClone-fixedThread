@@ -538,6 +538,7 @@ const Homepage = () => {
           borderBottom={"4px solid #008CCF"}
           w={"280px"}
           h={"56px"}
+          _hover={{ bgColor: "blue.500" }}
         >
           <Text color={"white"} fontWeight={"400"}>
             SEE ALL FEATURES

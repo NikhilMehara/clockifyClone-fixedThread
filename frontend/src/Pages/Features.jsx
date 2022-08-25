@@ -1,8 +1,10 @@
 import { 
+  AspectRatio,
   Box,
   Button,
   Center,
   Container,
+  Flex,
   Grid,
   GridItem,
   Heading,
@@ -11,6 +13,8 @@ import {
   Stack,
   Text, 
 } from '@chakra-ui/react'
+import {Link,Element} from "react-scroll"
+import {Link as RLink} from "react-router-dom"
 import React from 'react'
 
 
@@ -40,32 +44,32 @@ const Features = () => {
           <Box>
             <Heading size="sm" >TIMEKEEPING</Heading>
             <SimpleGrid marginTop={"10px"} columns="3" spacing="5px">
-                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray" >Time Tracker</Button>
-                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Kiosk</Button>
-                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Apps</Button>
-                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Time Sheet</Button>
-                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Calender</Button>
-                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Integrations</Button>
+                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray" ><Link to="timetracker" smooth={true} duration={500}>Time Tracker</Link></Button>
+                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="kisok" smooth={true} duration={500}>Kiosk</Link></Button>
+                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="apps" smooth={true} duration={500}>Apps</Link></Button>
+                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="timesheet" smooth={true} duration={500}>Time Sheet</Link></Button>
+                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="calender" smooth={true} duration={500}>Calender</Link></Button>
+                 <Button fontWeight={"normal"}  size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="interagation" smooth={true} duration={500}>Integrations</Link></Button>
             </SimpleGrid>
           </Box>
           <Box>
             <Heading size="sm">REPORTING</Heading>
             <SimpleGrid marginTop={"10px"} columns="2"  spacing="7px">
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray" >Dashboard</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Activity</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Reports</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Projects</Button>
+                 <Button fontWeight={"normal"} size='sm'  _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray" ><Link to="dashboard" smooth={true} duration={500}>Dashboard</Link></Button>
+                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="activity" smooth={true} duration={500}>Activity</Link></Button>
+                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="reports" smooth={true} duration={500}>Reports</Link></Button>
+                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="projects" smooth={true} duration={500}>Projects</Link></Button>
             </SimpleGrid>
           </Box>
           <Box>
             <Heading size="sm">MANAGEMENT</Heading>
             <SimpleGrid marginTop={"10px"} columns="3" spacing="7px">
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray" >Team</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Time Off</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Expenses</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Scheduling</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Approval</Button>
-                 <Button fontWeight={"normal"} size='sm' _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray">Invoicing</Button>
+                 <Button fontWeight={"normal"} size='sm'  _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray" ><Link to="team" smooth={true} duration={500}>Team</Link></Button>
+                 <Button fontWeight={"normal"} size='sm'  _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="timeoff" smooth={true} duration={500}>Time Off</Link></Button>
+                 <Button fontWeight={"normal"} size='sm'  _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="expenses" smooth={true} duration={500}>Expenses</Link></Button>
+                 <Button fontWeight={"normal"} size='sm'  _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="scheduling" smooth={true} duration={500}>Scheduling</Link></Button>
+                 <Button fontWeight={"normal"} size='sm'  _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="approval" smooth={true} duration={500}>Approval</Link></Button>
+                 <Button fontWeight={"normal"} size='sm'  _hover={{bg:"blue.400",color:"white"}} color="black" colorScheme="gray"><Link to="invoicing" smooth={true} duration={500}>Invoicing</Link></Button>
             </SimpleGrid>
           </Box>
          </SimpleGrid>
@@ -73,11 +77,14 @@ const Features = () => {
       </Stack>
       {/* TimeKeeping - part */}
       <Container maxW={"-moz-fit-content"} py={16} as={Stack} spacing={12} >
+        
         <Stack width={"-moz-fit-content"} align={"center"} paddingBottom={"30px"}>
+        <Element name="timetracker">
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Time tracker</Heading>
           <Text>Start and stop timer as you work, or enter hours manually.</Text>
         </Stack>
+        </Element>
         <Stack align={"center"} position={"relative"} >
            <Image src={"https://clockify.me/assets/images/features/features-tracker-screenshot.svg"} width={"95%"} display="block" zIndex="1" />
            <Image src={"https://clockify.me/assets/images/features/features-tracker-explainer.svg"} display="none" position={"absolute"} left="0" top="-10" zIndex="999" _hover={{display:"inline"}} />
@@ -101,11 +108,14 @@ const Features = () => {
                </GridItem>
         </Grid>
         </Stack>
+        
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
+        <Element name="timesheet">
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Timesheet</Heading>
           <Text>Log your weekly activities in less than a minute.</Text>
         </Stack>
+        </Element>
         <Stack align={"center"}>
            <Image src={"https://clockify.me/assets/images/features/features-timesheet-screenshot.svg"} width={"90%"} />
         </Stack>
@@ -128,11 +138,15 @@ const Features = () => {
                </GridItem>
         </Grid>
         </Stack>
+        
+        
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"}>
+        <Element name="kisok">
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Kiosk</Heading>
           <Text>Clock in with your PIN code from a shared device.</Text>
         </Stack>
+        </Element>
         <Stack align={"center"}>
            <Image src={"https://clockify.me/assets/images/features/features-kiosk-screenshot.png"} width={"90%"} />
         </Stack>
@@ -155,11 +169,15 @@ const Features = () => {
                </GridItem>
         </Grid>
         </Stack>
+        
+        
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
+        <Element name="calender">
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Calender</Heading>
           <Text>Visualize your time and block out activities.</Text>
         </Stack>
+        </Element>
         <Stack align={"center"}>
            <Image src={"https://clockify.me/assets/images/features/features-calendar-screenshot.svg"} width={"90%"} />
         </Stack>
@@ -182,20 +200,28 @@ const Features = () => {
                </GridItem>
         </Grid>
         </Stack>
+        
+        
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"}>
+        <Element name="apps">
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Apps</Heading>
           <Text>Track time using desktop and mobile app.</Text>
         </Stack>
+        </Element>
         <Stack align={"center"}>
            <Image src={"https://clockify.me/assets/images/features/features-apps-screenshot.png"} width={"90%"} />
         </Stack>
         </Stack>
+        
+        
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
+        <Element name="interagation">
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Integrations</Heading>
           <Text>Connect Clockify with other apps.</Text>
         </Stack>
+        </Element>
         <Stack align={"center"}>
            <Image src={"https://clockify.me/assets/images/features/features-tracker-screenshot.svg"} width={"90%"} />
         </Stack>
@@ -218,10 +244,40 @@ const Features = () => {
                </GridItem>
         </Grid>
         </Stack>
+        
       </Container>
       {/* Reporting - part */}
       <Container maxW={"-moz-fit-content"} py={16} as={Stack} spacing={12}>
+      <Element name="dashboard">
         <Stack width={"-moz-fit-content"} align={"center"} paddingBottom={"30px"}>
+        <Stack spacing={0} align={'center'}>
+          <Heading fontWeight={"normal"}>Dashboard</Heading>
+          <Text>See where you spend time and what your team is working on.</Text>
+        </Stack>
+        <Stack align={"center"}>
+           <Image src={"https://clockify.me/assets/images/features/features-dashboard-screenshot.svg"} width={"90%"} />
+        </Stack>
+        <Grid templateColumns={['repeat(2, 1fr)','repeat(3, 1fr)','repeat(4, 1fr)']} paddingLeft={[3,6,10]} gap={[20,12,6]}>
+               <GridItem w='100%' h='10'>
+               <Heading size="md" fontWeight={"medium"}>Activities</Heading>
+               <Text>See where you spend most time</Text>
+               </GridItem>
+               <GridItem w='100%' h='10'>
+               <Heading size="md" fontWeight={"medium"}>Charts</Heading>
+               <Text>All time and money at a glance.</Text>
+               </GridItem>
+               <GridItem w='100%' h='10'>
+               <Heading size="md" fontWeight={"medium"}>Breakdowns</Heading>
+               <Text>See what your team worked on.</Text>
+               </GridItem>
+               <GridItem w='100%' h='10'>
+               <Heading size="md" fontWeight={"medium"}>Status</Heading>
+               <Text>See who currently works on what.</Text>
+               </GridItem>
+        </Grid>
+        </Stack></Element>
+      <Element name="reports">
+        <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Reports</Heading>
           <Text>See who worked on what, how much money you earn, review your team's time, and export the data.</Text>
@@ -247,8 +303,9 @@ const Features = () => {
                <Text>Download PDF, CSV, or Excel</Text>
                </GridItem>
         </Grid>
-        </Stack>
-        <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
+        </Stack></Element>
+        <Element name="activity">
+        <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Activity</Heading>
           <Text>See visited sites and what you've worked on.</Text>
@@ -274,8 +331,9 @@ const Features = () => {
                <Text>Control what data is gathered.</Text>
                </GridItem>
         </Grid>
-        </Stack>
-        <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"}>
+        </Stack></Element>
+        <Element name="projects">
+        <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Projects</Heading>
           <Text>Track time on projects, and keep an eye on progress and budget.</Text>
@@ -301,10 +359,11 @@ const Features = () => {
                <Text>Get notified when close to budget.</Text>
                </GridItem>
         </Grid>
-        </Stack>
+        </Stack></Element>
       </Container>
       {/* Management */}
-      <Container maxW={"-moz-fit-content"} py={16} as={Stack} spacing={12}>
+      <Container maxW={"-moz-fit-content"}  as={Stack} spacing={12}>
+      <Element name="team">
         <Stack width={"-moz-fit-content"} align={"center"} paddingBottom={"30px"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Teams</Heading>
@@ -331,7 +390,8 @@ const Features = () => {
                <Text>Manage access using groups.</Text>
                </GridItem>
         </Grid>
-        </Stack>
+        </Stack></Element>
+        <Element name="scheduling">
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Scheduling</Heading>
@@ -358,7 +418,8 @@ const Features = () => {
                <Text>Let others see their assignments.</Text>
                </GridItem>
         </Grid>
-        </Stack>
+        </Stack></Element>
+        <Element name="timeoff">
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Time Off</Heading>
@@ -385,7 +446,8 @@ const Features = () => {
                <Text>Track available days/hours.</Text>
                </GridItem>
         </Grid>
-        </Stack>
+        </Stack></Element>
+        <Element name="approval">
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Approval</Heading>
@@ -412,7 +474,8 @@ const Features = () => {
                <Text>See all requests in one place.</Text>
                </GridItem>
         </Grid>
-        </Stack>
+        </Stack></Element>
+        <Element name="expenses">
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Expenses</Heading>
@@ -439,7 +502,8 @@ const Features = () => {
                <Text>Analyze and export expenses</Text>
                </GridItem>
         </Grid>
-        </Stack>
+        </Stack></Element>
+        <Element name="invoicing">
         <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
         <Stack spacing={0} align={'center'}>
           <Heading fontWeight={"normal"}>Invoicing</Heading>
@@ -466,6 +530,69 @@ const Features = () => {
                <Text>Record and invoice fixed fees.</Text>
                </GridItem>
         </Grid>
+        </Stack></Element>
+      </Container>
+      <Container maxW={"-moz-fit-content"}  as={Stack} spacing={12}>
+        <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"}>
+          <Heading fontWeight={"medium"} color={"blue.400"}>Watch Demo (12:35)</Heading>
+        </Stack>
+        <AspectRatio maxWidth={["auto","auto","1061"]} maxHight={["auto","auto","597"]} ratio={3/1.5}>
+          <iframe 
+          width="1061"
+          height="597"
+          src="https://www.youtube.com/embed/NMZhFs_b0Aw" 
+          title="Clockify Tour" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen ></iframe>
+          </AspectRatio>
+        <Stack width={"-moz-fit-content"} align={"center"} padding={"50px 0px"} bg={"#f7fcff"}>
+        <Heading
+        mt={20}
+        mb={2}
+        align={"center"}
+        fontWeight={"400"}
+        size={["lg", "xl"]}
+        color={"gray.600"}
+      >
+        Start tracking time with Clockify
+      </Heading>
+      <Text textAlign={"center"} fontSize={["xs", "sm"]} color={"gray"}>
+        24/7 Support • Cancel Anytime • Free Forever
+      </Text>
+      <Flex flexDir={"column"} alignItems={"center"} mt={10}>
+        <Button
+          color={"white"}
+          p={[1, 7]}
+          boxShadow={"md"}
+          _hover={{ bg: "blue.400" }}
+          bgColor={"#03A9F4"}
+          borderBottom={"4px solid #008CCF"}
+          w={"280px"}
+          h={"56px"}
+        >
+          <RLink to="/">
+            <Text fontWeight={400} fontSize={["xs", "md"]}>
+              CREATE FREE ACCOUNT
+            </Text>
+          </RLink>
+        </Button>
+        <Button
+          p={0}
+          colorScheme={"none"}
+          color={"blue.400"}
+          _hover={{ textDecoration: "underline" }}
+        >
+          <Image
+            src={"https://clockify.me/assets/images/signed-up-icon.svg"}
+          ></Image>
+          <Text fontSize={"xs"} ml={"1"}>
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              134,602 people signed up last month
+            </a>
+          </Text>
+        </Button>
+      </Flex>
         </Stack>
       </Container>
     </Box>
