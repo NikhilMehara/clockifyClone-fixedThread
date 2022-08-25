@@ -27,7 +27,7 @@ export default function LoginNav() {
                   cursor={'pointer'}
                   minW={0}>
                 <Stack direction={'row'}>
-                  {/* <Box w={{base:'0ex'}} >Don't have an account?</Box> */}
+                  <Box  >Don't have an account?</Box>
                   <Box color='#03A9F4' >Sign up</Box>
                     </Stack>
                 </MenuButton> 
