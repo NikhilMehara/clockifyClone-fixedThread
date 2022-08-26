@@ -1,5 +1,5 @@
 export const setItem = (key, value) => {
-  return localStorage.setItem(JSON.stringify(key, value));
+  return localStorage.setItem(key, value);
 };
 
 export const getItem = (key) => {

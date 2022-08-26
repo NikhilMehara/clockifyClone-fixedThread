@@ -79,7 +79,7 @@ export default function DashboardNavbar({ children }) {
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
-        <Projects/>
+        {/* <Projects/> */}
       </Box>
       
     </Box>

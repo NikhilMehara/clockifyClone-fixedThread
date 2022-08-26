@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import { useMediaQuery } from '@chakra-ui/react'
+import { Link} from "react-router-dom";
 import {
   Box,
   Flex,
@@ -10,6 +12,10 @@ import {
 } from '@chakra-ui/react';
 
 export default function LoginNav() {
+  const [isLargerThan680] = useMediaQuery('(min-width: 680px)')
+  let handleCLick=()=>{
+    console.log('1');
+  }
   return (
     <>
       <Box
@@ -27,8 +33,10 @@ export default function LoginNav() {
                   cursor={'pointer'}
                   minW={0}>
                 <Stack direction={'row'}>
-                  <Box  >Don't have an account?</Box>
-                  <Box color='#03A9F4' >Sign up</Box>
+                  <Box >{isLargerThan680 ? "Don't have an account?" : ''}</Box>
+                    <Box color='#03A9F4' onClick={()=>handleCLick()} > Sign Up
+                    {/* <Link to={"/signup"}>SIGN UP</Link> */}
+                    </Box>
                     </Stack>
                 </MenuButton> 
               </Menu>
