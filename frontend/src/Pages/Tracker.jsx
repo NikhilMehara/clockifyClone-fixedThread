@@ -3,9 +3,9 @@ import DashboardNavbar from '../Components/DashboardNavbar'
 
 const Tracker = () => {
   return (
-    <div>
-        <DashboardNavbar />
-    </div>
+    <DashboardNavbar>
+      Tracker
+    </DashboardNavbar>
   )
 }
 
