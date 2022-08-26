@@ -6,6 +6,7 @@ import Downloads from "./Downloads";
 import Features from "./Features";
 import Homepage from "./Homepage";
 import Login from "./Login";
+import Project from "./Project";
 import Signup from "./Signup";
 import Tracker from "./Tracker";
 
@@ -46,6 +47,7 @@ const MainRoutes = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/tracker" element={<Tracker />}></Route>
+        <Route path="/project" element={<Project />}></Route>
       </Routes>
     </>
   );
