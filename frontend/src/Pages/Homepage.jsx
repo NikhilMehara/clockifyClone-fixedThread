@@ -281,7 +281,7 @@ const Homepage = () => {
           w={"280px"}
           h={"56px"}
         >
-          <Link to="/">
+          <Link to="/project">
             <Text fontWeight={400} fontSize={["xs", "md"]}>
               START TRACKING TIME — IT'S FREE!
             </Text>
@@ -901,7 +901,7 @@ const Homepage = () => {
           w={"280px"}
           h={"56px"}
         >
-          <Link to="/">
+          <Link to="/signup">
             <Text fontWeight={400} fontSize={["xs", "md"]}>
               CREATE FREE ACCOUNT
             </Text>
