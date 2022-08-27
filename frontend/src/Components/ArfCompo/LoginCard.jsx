@@ -12,10 +12,21 @@ import {
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
+import { LoginGet } from '../../Stores/Auth/auth.actions';
 import GoogleButton from './Googlebutton';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 
-  
   export default function LoginCard() {
+    const {token}=useSelector((state)=>state.authReducer);
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
+    const dispatch = useDispatch();
+    const handleClick=(e)=>{
+        e.preventDefault();
+        dispatch(LoginGet(email,password));
+    }
+    console.log(token);
     return (
       <Flex
         minH={'1vh'}
@@ -30,11 +41,11 @@ import GoogleButton from './Googlebutton';
             <Stack bg={useColorModeValue('white')} spacing={4}>
               <FormControl bg={useColorModeValue('white')} id="email">
                 <FormLabel bg={useColorModeValue('white')}>Log In</FormLabel>
-                <Input placeholder='Enter Email' type="email" />
+                <Input placeholder='Enter Email' value={email} onChange={(e)=>setEmail(e.target.value)} type="email" />
               </FormControl>
               <FormControl bg={useColorModeValue('white')} id="password">
                 {/* <FormLabel>Password</FormLabel> */}
-                <Input bg={useColorModeValue('white')} placeholder='Enter Password' type="password" />
+                <Input bg={useColorModeValue('white')} value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='Enter Password' type="password" />
               </FormControl>
               <Stack bg={useColorModeValue('white')} spacing={10}>
                 <Stack bg={useColorModeValue('white')}
@@ -43,7 +54,7 @@ import GoogleButton from './Googlebutton';
                   <Checkbox bg={useColorModeValue('white')}>Stay logged in</Checkbox>
                   <Link color={'#03A9F4'}>Forgot Password?</Link>
                 </Stack>
-                <Button
+                <Button onClick={(e)=>handleClick(e)}
                   bg={'blue.300'}
                   color={'white'}
                   _hover={{
