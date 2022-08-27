@@ -281,7 +281,7 @@ const Homepage = () => {
           w={"280px"}
           h={"56px"}
         >
-          <Link to="/">
+          <Link to="/project">
             <Text fontWeight={400} fontSize={["xs", "md"]}>
               START TRACKING TIME — IT'S FREE!
             </Text>
@@ -538,6 +538,7 @@ const Homepage = () => {
           borderBottom={"4px solid #008CCF"}
           w={"280px"}
           h={"56px"}
+          _hover={{ bgColor: "blue.500" }}
         >
           <Text color={"white"} fontWeight={"400"}>
             SEE ALL FEATURES
@@ -900,7 +901,7 @@ const Homepage = () => {
           w={"280px"}
           h={"56px"}
         >
-          <Link to="/">
+          <Link to="/signup">
             <Text fontWeight={400} fontSize={["xs", "md"]}>
               CREATE FREE ACCOUNT
             </Text>

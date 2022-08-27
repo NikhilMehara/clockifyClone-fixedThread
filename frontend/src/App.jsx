@@ -1,18 +1,13 @@
-import { Chat } from "./Components/Chat";
-import Footer from "./Components/Footer";
-import Navbar from "./Components/Navbar";
-import MainRoutes from "./Pages/MainRoutes";
-import DashboardNavbar from './Components/DashboardNavbar';
+// import Upgrade from "./Pages/Upgrade";
+import MainRoutes from './Pages/MainRoutes'
+import Payment from './Pages/Payment';
+import Upgrade from './Pages/Upgrade';
 
 
 function App() {
   return (
     <div>
-      <DashboardNavbar/>
-      <Navbar />
       <MainRoutes />
-      <Footer />
-      <Chat /> 
     </div>
   );
 }

@@ -12,24 +12,21 @@ import {
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
-import { useState } from 'react';
+import { LoginGet } from '../../Stores/Auth/auth.actions';
 import GoogleButton from './Googlebutton';
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { SignupGet } from '../../Stores/Auth/auth.actions';
-  
-  export default function Signupcard() {
-    const {message}=useSelector((state)=>state.authReducer);
+
+  export default function LoginCard() {
+    const {token}=useSelector((state)=>state.authReducer);
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-    const dispatch=useDispatch();
-
-
+    const dispatch = useDispatch();
     const handleClick=(e)=>{
-      // console.log(email,password);
-      e.preventDefault();
-      dispatch(SignupGet(email,password));
-  }
-  console.log(message);
+        e.preventDefault();
+        dispatch(LoginGet(email,password));
+    }
+    console.log(token);
     return (
       <Flex
         minH={'1vh'}
@@ -43,7 +40,7 @@ import { SignupGet } from '../../Stores/Auth/auth.actions';
             p={8}>
             <Stack bg={useColorModeValue('white')} spacing={4}>
               <FormControl bg={useColorModeValue('white')} id="email">
-                <FormLabel bg={useColorModeValue('white')}>Sign Up</FormLabel>
+                <FormLabel bg={useColorModeValue('white')}>Log In</FormLabel>
                 <Input placeholder='Enter Email' value={email} onChange={(e)=>setEmail(e.target.value)} type="email" />
               </FormControl>
               <FormControl bg={useColorModeValue('white')} id="password">
@@ -54,16 +51,16 @@ import { SignupGet } from '../../Stores/Auth/auth.actions';
                 <Stack bg={useColorModeValue('white')}
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}>
-                  <Checkbox bg={useColorModeValue('white')}>I agree to the</Checkbox>
-                  <Link color={'#03A9F4'}>Terms Of Use</Link>
+                  <Checkbox bg={useColorModeValue('white')}>Stay logged in</Checkbox>
+                  <Link color={'#03A9F4'}>Forgot Password?</Link>
                 </Stack>
                 <Button onClick={(e)=>handleClick(e)}
-                  bg={'#03A9F4'}
+                  bg={'blue.300'}
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
                   }}>
-                  CREATE FREE ACCOUNT
+                  Log In
                 </Button>
                 <GoogleButton/>
               </Stack>
