@@ -8,6 +8,7 @@ import Homepage from "./Homepage";
 import Login from "./Login";
 import Project from "./Project";
 import Signup from "./Signup";
+import TimeTracker from "./TimeTracker";
 import Tracker from "./Tracker";
 
 const MainRoutes = () => {
@@ -46,7 +47,7 @@ const MainRoutes = () => {
         ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/tracker" element={<Tracker />}></Route>
+        <Route path="/tracker" element={<TimeTracker />}></Route>
         <Route path="/project" element={<Project />}></Route>
       </Routes>
     </>
