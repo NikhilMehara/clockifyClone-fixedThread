@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { SimpleGrid } from '@chakra-ui/react'
 import { FaCheckCircle } from 'react-icons/fa';
+import { removeItem, setItem } from '../../Utils/localStorage';
 
 function PriceWrapper({ children }) {
   return (
@@ -30,6 +31,19 @@ function PriceWrapper({ children }) {
 }
 
 export default function UpgradeCompo() {
+  const handlepay=(e)=>{
+    // console.log(e.target.value);
+    if(e.target.value==='a'){
+      removeItem('payment');
+      setItem('payment',4.99);
+    }else if(e.target.value==='b'){
+      removeItem('payment');
+      setItem('payment',9.99);
+    }else{
+      removeItem('payment');
+      setItem('payment',6.99);
+    }
+  }
   return (
     <>
     <Box py={12}>
@@ -69,7 +83,7 @@ export default function UpgradeCompo() {
             mt={-10}
             borderBottomRadius={'xl'}>
                 <Box w="80%" pt={7}>
-            <Button w="full" colorScheme="blackAlpha">
+            <Button w="full" onClick={(e)=>handlepay(e)} value={'a'} colorScheme="blackAlpha">
                   Upgrade
                 </Button>
             </Box>
@@ -156,7 +170,7 @@ export default function UpgradeCompo() {
               borderBottomRadius={'xl'}>
           <Text>per seat</Text>
                 <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="red">
+                <Button w="full" onClick={(e)=>handlepay(e)} value={'b'} colorScheme="red">
                   UPGRADE
                 </Button>
               </Box>
@@ -228,7 +242,7 @@ export default function UpgradeCompo() {
             mt={-10}
             borderBottomRadius={'xl'}>
                 <Box w="80%" pt={7}>
-            <Button w="full" colorScheme="blue">
+            <Button w="full" onClick={(e)=>handlepay(e)} value={'c'} colorScheme="blue">
                   Upgrade
                 </Button>
             </Box>

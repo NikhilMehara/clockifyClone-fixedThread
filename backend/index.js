@@ -32,9 +32,9 @@ app.get(
     const email=req.user.email;
     const userId=req.user._id;
     let token = jwt.sign({email,userId}, process.env.SECRET);
-    console.log(token);
+    // console.log(token);
     // res.redirect("/");
-    return res.send({"message":"login Success","email":email,"token":token})
+    res.send({"message":"login Success","email":email,"token":token})
     // res.redirect('/');
   }
 );
