@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+import Calendar from "./Calendar";
 import Downloads from "./Downloads";
 import Features from "./Features";
 import Homepage from "./Homepage";
@@ -49,6 +50,7 @@ const MainRoutes = () => {
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/tracker" element={<TimeTracker />}></Route>
         <Route path="/project" element={<Project />}></Route>
+        <Route path="/calendar" element={<Calendar />}></Route>
       </Routes>
     </>
   );
