@@ -38,13 +38,12 @@ import { IoMdStats } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
 import { RiFunctionLine, RiFileList3Line } from "react-icons/ri";
 import { GrTag, GrCircleQuestion } from "react-icons/gr";
-import Projects from './../Pages/Projects';
 const LinkItems = [
   { name: "TIME TRACKER", icon: MdAccessTime },
   { name: "CALENDAR", icon: BsCalendar3 },
   { name: "DASHBOARD", icon: RiFunctionLine },
   { name: "REPORTS", icon: IoMdStats },
-  { name: "PORJECTS", icon: RiFileList3Line },
+  { name: "PROJECTS", icon: RiFileList3Line },
   { name: "TEAM", icon: GrGroup, span: "ANALYZE" },
   { name: "CLIENTS", icon: VscAccount },
   { name: "TAGS", icon: GrTag },
@@ -59,7 +58,7 @@ export default function DashboardNavbar({ children }) {
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
-      
+
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
@@ -71,19 +70,15 @@ export default function DashboardNavbar({ children }) {
       >
         <DrawerContent>
           <SidebarContent onClose={onClose} />
-          
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
-      
+
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {children}
-        {/* <Projects/> */}
       </Box>
-      
     </Box>
-
   );
 }
 
@@ -94,7 +89,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       bg={useColorModeValue("white", "gray.900")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
-      w={{ base: "full", md: 60 }}
+      w={{ base: "full", md: 210 }}
       pos="fixed"
       h="full"
       {...rest}
@@ -105,7 +100,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       </Flex>
       {LinkItems.map((link) => (
         <Box>
-          <Text fontSize={"sm"} ml={"7"}>
+          <Text fontSize={"sm"} ml={"7"} color={"gray.500"}>
             {link?.span}
           </Text>
           <NavItem key={link.name} icon={link.icon}>
@@ -156,9 +151,9 @@ const NavItem = ({ icon, children, ...rest }) => {
 const MobileNav = ({ onOpen, ...rest }) => {
   return (
     <Flex
-      ml={{ base: 0, md: 60 }}
+      ml={{ base: 0, md: 40 }}
       px={{ base: 4, md: 4 }}
-      height="20"
+      height="3.5rem"
       alignItems="center"
       bg={useColorModeValue("white", "gray.900")}
       borderBottomWidth="1px"
@@ -182,7 +177,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
         src="https://clockify.me/assets/images/clockify-logo.svg"
       />
 
-      <HStack spacing={{ base: "0", md: "6" }}>
+      <HStack spacing={{ base: "0", md: "8" }}>
         <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
           <Text>Name' workspace</Text>
           <Text
@@ -194,32 +189,28 @@ const MobileNav = ({ onOpen, ...rest }) => {
           >
             UPGRADE
           </Text>
-          <Box
-          
-          >
+          <Box>
             <IconButton
               borderLeft={"1px solid grey"}
-          borderRadius="none"
+              borderRadius="none"
               borderStyle={"dotted"}
               size="lg"
               variant="ghost"
               aria-label="open menu"
               icon={<GrCircleQuestion />}
             />
-             <IconButton
+            <IconButton
               borderRadius="none"
-               borderLeft={"1px solid grey"}
-               borderRight={"1px solid grey"}
-               borderStyle={"dotted"}
-            size="lg"
-            variant="ghost"
-            aria-label="open menu"
-            icon={<FiBell />}
-          />
+              borderLeft={"1px solid grey"}
+              borderRight={"1px solid grey"}
+              borderStyle={"dotted"}
+              size="lg"
+              variant="ghost"
+              aria-label="open menu"
+              icon={<FiBell />}
+            />
           </Box>
         </HStack>
-
-       
 
         <Flex alignItems={"center"}>
           <Menu>
