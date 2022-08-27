@@ -203,7 +203,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
           >
             <IconButton
               borderLeft={"1px solid grey"}
-          borderRadius="none"
+              borderRadius="none"
               borderStyle={"dotted"}
               size="lg"
               variant="ghost"

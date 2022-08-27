@@ -9,10 +9,10 @@ function App() {
   return (
     <div>
       <DashboardNavbar/>
-      {/* <Navbar />
+      <Navbar />
       <MainRoutes />
       <Footer />
-      <Chat /> */}
+      <Chat /> 
     </div>
   );
 }
