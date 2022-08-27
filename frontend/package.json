@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.2.8",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.18.2.tgz",
     "axios": "^0.27.2",
     "framer-motion": "^7.2.0",
     "react": "^18.2.0",
