@@ -49,6 +49,7 @@ const LinkItems = [
   { name: "TAGS", icon: GrTag },
   { name: "SETTINGS", icon: FiSettings },
 ];
+import {Link as RouterLink} from "react-router-dom";
 
 export default function DashboardNavbar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -95,7 +96,9 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Image src="https://clockify.me/assets/images/clockify-logo.svg" />
+        <RouterLink to="/">
+          <Image src="https://clockify.me/assets/images/clockify-logo.svg" />
+        </RouterLink>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (

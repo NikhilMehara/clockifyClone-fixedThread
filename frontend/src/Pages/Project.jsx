@@ -19,10 +19,18 @@ import {
   TableContainer,
   Checkbox,
   Image,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import DashboardNavbar from "../Components/DashboardNavbar";
 import { SearchIcon, ChevronDownIcon, ArrowUpDownIcon } from "@chakra-ui/icons";
+import CreateProjectModal from "../Components/CreateProjectModal";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { deleteProject, getProjects } from "../Stores/Tasks/tasks.actions";
 
 const Links = ["Active", "Client", "Access", "Billing"];
 
@@ -73,7 +81,7 @@ const Filter = () => {
                   </Button>
                 ))}
               </Flex>
-              <InputGroup w={[, "26rem"]}>
+              <InputGroup w={[, "25rem"]}>
                 <InputLeftElement
                   color={"gray.500"}
                   children={<SearchIcon />}
@@ -99,6 +107,15 @@ const Filter = () => {
 
 const Project = () => {
   const [fav, setFav] = useState(false);
+  const dispatch = useDispatch();
+  const { projects } = useSelector((state) => state.taskReducer);
+  const handleDelete = (ele) => {
+    dispatch(deleteProject(ele._id));
+    dispatch(getProjects());
+  };
+  useEffect(() => {
+    dispatch(getProjects());
+  }, []);
   return (
     <div>
       <DashboardNavbar>
@@ -106,22 +123,7 @@ const Project = () => {
           <Heading size={"lg"} fontWeight={"400"} color={"gray.500"}>
             Projects
           </Heading>
-          <Button
-            color={"white"}
-            border={"1px"}
-            fontWeight={400}
-            bgColor={"blue.400"}
-            borderRadius={"sm"}
-            _hover={{
-              color: "blue.400",
-              bgColor: "white",
-              borderColor: "blue.400",
-              border: "1px",
-            }}
-            size={"md"}
-          >
-            CREATE NEW PROJECT
-          </Button>
+          <CreateProjectModal />
         </Flex>
         <Filter />
         <TableContainer border={"1px"} borderColor={"gray.300"} mt={10}>
@@ -176,34 +178,75 @@ const Project = () => {
                   </Flex>
                 </Td>
               </Tr>
-              <Tr fontSize={"0.9rem"}>
-                <Td>
-                  <Flex alignItems={"center"} gap={"2"}>
-                    <Checkbox borderColor={"gray.300"} /> Clockify Clone{" "}
-                  </Flex>
-                </Td>
-                <Td> -- </Td>
-                <Td color={"gray.600"}>0.00h</Td>
-                <Td color={"gray.600"}>0.00 USD</Td>
-                <Td>--</Td>
-                <Td colSpan={2}>Public</Td>
-                <Td cursor={"pointer"} onClick={() => setFav(!fav)}>
-                  {!fav ? (
-                    <Image
-                      onClick={() => setFav(!fav)}
-                      src="https://app.clockify.me/favorites-normal.2dcd9618b3e4e3a4.svg"
-                    ></Image>
-                  ) : (
-                    <Image
-                      onClick={() => setFav(!fav)}
-                      src="https://app.clockify.me/favorites-active.499d0973f3d1cd69.svg"
-                    ></Image>
-                  )}
-                </Td>
-                <Td>
-                  <Image src="https://app.clockify.me/assets/ui-icons/menu-dots-vertical.svg"></Image>{" "}
-                </Td>
-              </Tr>
+              {projects.length > 0 &&
+                projects.map((ele) => (
+                  <Tr
+                    fontSize={"0.9rem"}
+                    borderBottom={"1px"}
+                    borderColor={"gray.300"}
+                  >
+                    <Td>
+                      <Flex alignItems={"center"} gap={"2"}>
+                        <Checkbox borderColor={"gray.300"} /> {ele.name}
+                      </Flex>
+                    </Td>
+                    <Td> -- </Td>
+                    <Td color={"gray.600"}>0.00h</Td>
+                    <Td color={"gray.600"}>0.00 USD</Td>
+                    <Td>--</Td>
+                    <Td colSpan={2}>Public</Td>
+                    <Td cursor={"pointer"} onClick={() => setFav(!fav)}>
+                      {!fav ? (
+                        <Image
+                          onClick={() => setFav(!fav)}
+                          src="https://app.clockify.me/favorites-normal.2dcd9618b3e4e3a4.svg"
+                        ></Image>
+                      ) : (
+                        <Image
+                          onClick={() => setFav(!fav)}
+                          src="https://app.clockify.me/favorites-active.499d0973f3d1cd69.svg"
+                        ></Image>
+                      )}
+                    </Td>
+                    <Td cursor={"pointer"}>
+                      <Menu>
+                        {({ isOpen }) => (
+                          <>
+                            <MenuButton isActive={isOpen}>
+                              <Image src="https://app.clockify.me/assets/ui-icons/menu-dots-vertical.svg"></Image>
+                            </MenuButton>
+                            <MenuList
+                              borderRadius={"md"}
+                              borderColor={"gray.300"}
+                            >
+                              <MenuItem fontWeight={"bold"}>
+                                <Button
+                                  size={"sm"}
+                                  colorScheme={"blue"}
+                                  w={"100%"}
+                                >
+                                  Archieve
+                                </Button>
+                              </MenuItem>
+                              <MenuItem
+                                fontWeight={"bold"}
+                              >
+                                <Button
+                                  size={"sm"}
+                                  colorScheme={"red"}
+                                  w={"100%"}
+                                  onClick={() => handleDelete(ele)}
+                                >
+                                  Delete
+                                </Button>
+                              </MenuItem>
+                            </MenuList>
+                          </>
+                        )}
+                      </Menu>
+                    </Td>
+                  </Tr>
+                ))}
             </Tbody>
           </Table>
         </TableContainer>
