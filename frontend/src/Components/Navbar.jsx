@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Links = ["features", "download"];
 
@@ -33,11 +34,15 @@ const NavLink = ({ children }) => (
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const { user } = useSelector((state) => state.taskReducer);
   return (
     <>
       <Box py={[1, 3]} px={[null, 20]} mb={10}>
-        <Flex h={[10, 16]} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex
+          h={[10, 16]}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -62,8 +67,17 @@ export default function Navbar() {
             </HStack>
           </HStack>
           <Flex alignItems={"center"}>
-            <Button variant={"ghosted"} colorScheme={"blue"} size={["xs", "sm"]} mr={4}>
-              <RouterLink to={"/login"}>LOG IN</RouterLink>
+            <Button
+              variant={"ghosted"}
+              colorScheme={"blue"}
+              size={["xs", "sm"]}
+              mr={4}
+            >
+              {!user ? (
+                <RouterLink to={"/login"}>LOG IN</RouterLink>
+              ) : (
+                <Text>{user}</Text>
+              )}
             </Button>
             <Button
               variant={"outline"}

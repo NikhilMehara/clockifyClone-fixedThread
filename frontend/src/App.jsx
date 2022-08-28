@@ -1,13 +1,11 @@
-// import Upgrade from "./Pages/Upgrade";
-import MainRoutes from './Pages/MainRoutes'
-import Payment from './Pages/Payment';
-import Upgrade from './Pages/Upgrade';
-
+import { Chat } from "./Components/Chat";
+import MainRoutes from "./Pages/MainRoutes";
 
 function App() {
   return (
     <div>
       <MainRoutes />
+      <Chat />
     </div>
   );
 }
