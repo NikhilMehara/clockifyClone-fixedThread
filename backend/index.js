@@ -10,8 +10,8 @@ const projectController = require("./Controllers/project.routes");
 const taskController = require("./Controllers/task.routes");
 
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Home page");
