@@ -67,3 +67,18 @@ export const LoginGet =(email,password)=>(dispatch)=>{
         console.log(err);
     })
 }
+export const Google_oauth =()=>(dispatch)=>{
+    // console.log(email,password);
+    dispatch(login_req());
+    return axios({
+        method:"get",
+        url:"http://localhost:7000/auth/google",
+    }).then((res)=>{
+       console.log(res.data);
+        // dispatch(login_succ(res.data));
+        // localStorage.setItem('token',res.data.token);
+    }).catch((err)=>{
+        dispatch(login_fail());
+        console.log(err);
+    })
+}
