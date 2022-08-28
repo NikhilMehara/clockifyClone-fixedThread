@@ -2,7 +2,6 @@ const express = require("express");
 const connection = require("./Config/db");
 let jwt = require("jsonwebtoken");
 const userController = require("./Controllers/user.routes");
-// const UserModel = require("./Models/user.model");
 const cors = require("cors");
 const authentication = require("./Middleware/authentication");
 require("dotenv").config();
@@ -51,5 +50,5 @@ app.listen(process.env.PORT, async () => {
   } catch (err) {
     console.log(err);
   }
-  console.log(`Listening at http://localhost:${process.env.PORT}`);
+  console.log(`Server Listening`);
 });

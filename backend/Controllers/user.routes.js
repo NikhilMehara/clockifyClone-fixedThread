@@ -3,7 +3,7 @@ let jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
-const UserModel = require("../models/user.model");
+const UserModel = require("../Models/user.model");
 const userController = express.Router();
 
 userController.post("/signup",(req,res)=>{
