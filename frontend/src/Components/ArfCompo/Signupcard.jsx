@@ -1,34 +1,52 @@
 import {
-    Flex,
-    Box,
-    FormControl,
-    FormLabel,
-    Input,
-    Checkbox,
-    Stack,
-    Link,
-    Button,
-    Heading,
-    Text,
-    useColorModeValue,
-  } from '@chakra-ui/react';
-import { useState } from 'react';
-import GoogleButton from './Googlebutton';
-import { useDispatch, useSelector } from 'react-redux';
-import { SignupGet } from '../../Stores/Auth/auth.actions';
-  
-  export default function Signupcard() {
-    const {message}=useSelector((state)=>state.authReducer);
-    const [email,setEmail]=useState('');
-    const [password,setPassword]=useState('');
-    const dispatch=useDispatch();
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  Checkbox,
+  Stack,
+  Link,
+  Button,
+  Heading,
+  Text,
+  useColorModeValue,
+  useToast,
+} from "@chakra-ui/react";
+import { useState } from "react";
+import GoogleButton from "./Googlebutton";
+import { useDispatch, useSelector } from "react-redux";
+import { SignupGet } from "../../Stores/Auth/auth.actions";
+import { useNavigate } from "react-router-dom";
 
-
-    const handleClick=(e)=>{
-      // console.log(email,password);
-      e.preventDefault();
-      dispatch(SignupGet(email,password));
-  }
+export default function Signupcard() {
+  const { message } = useSelector((state) => state.authReducer);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const toast = useToast()
+  const handleClick = (e) => {
+    dispatch(SignupGet(email, password));
+    try {
+      toast({
+        title: "Account created successfully!",
+        description: "Let's start tracking our time",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      navigate("/login");
+    } catch (err) {
+      toast({
+        title: "Internal server error!",
+        description: "Please try again!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  };
   console.log(message);
     return (
       <Flex
@@ -67,18 +85,33 @@ import { SignupGet } from '../../Stores/Auth/auth.actions';
                 </Button>
                 <GoogleButton onClick={(e)=>console.log('hi')}/>
               </Stack>
+              <Button
+                onClick={(e) => handleClick(e)}
+                bg={"#03A9F4"}
+                color={"white"}
+                _hover={{
+                  bg: "blue.500",
+                }}
+              >
+                CREATE FREE ACCOUNT
+              </Button>
+              <GoogleButton />
             </Stack>
-          </Box>
-          <Stack direction='row' pl='6.5rem'>
-          <img src="https://app.clockify.me/assets/ui-icons/translate.svg" alt="" />
+          </Stack>
+        </Box>
+        <Stack direction="row" pl="6.5rem">
+          <img
+            src="https://app.clockify.me/assets/ui-icons/translate.svg"
+            alt=""
+          />
           <Text>English</Text>
-       </Stack>
-          <Stack direction='row'>
+        </Stack>
+        <Stack direction="row">
           <img src="https://app.clockify.me/assets/ui-icons/safe.svg" alt="" />
           <Text>Your data is safe with us:</Text>
-          <Text color={'#03A9F4'}>Security Privacy</Text>
-       </Stack>
+          <Text color={"#03A9F4"}>Security Privacy</Text>
         </Stack>
-      </Flex>
-    );
-  }
+      </Stack>
+    </Flex>
+  );
+}

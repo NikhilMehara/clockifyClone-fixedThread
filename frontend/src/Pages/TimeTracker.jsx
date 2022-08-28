@@ -62,7 +62,7 @@ const TimeTracker = () => {
     const toast = useToast();
 
     const getTasks = ()=>{
-        axios.get("http://localhost:7000/tasks",{
+        axios.get("https://pure-cliffs-12633.herokuapp.com/tasks",{
             headers:{
                 Authorization: 'Bearer '+getItem("token")
             }
@@ -127,7 +127,7 @@ const TimeTracker = () => {
         setInput2("");
         setInput1("");
         setTag(undefined);
-       axios.post(`http://localhost:7000/tasks/new`,payload,{
+       axios.post(`https://pure-cliffs-12633.herokuapp.com/tasks/new`,payload,{
         headers:{
             Authorization : "Bearer "+getItem("token")
         }
@@ -162,7 +162,7 @@ const TimeTracker = () => {
 
 
     const handleDelete = (id)=>{
-        axios.delete(`http://localhost:7000/tasks/delete/${id}`,{
+        axios.delete(`https://pure-cliffs-12633.herokuapp.com/tasks/delete/${id}`,{
             headers:{
                 Authorization : "Bearer "+getItem("token")
             }
@@ -370,7 +370,7 @@ const TimeTracker = () => {
                   </Flex>
                 </Td>
               </Tr>
-              {dataStore.map((task)=>{
+              {dataStore.length > 0 && dataStore.map((task)=>{
                 return (
               <Tr fontSize={"0.9rem"}>
                 <Td>

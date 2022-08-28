@@ -20,6 +20,10 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -39,19 +43,23 @@ import { VscAccount } from "react-icons/vsc";
 import { RiFunctionLine, RiFileList3Line } from "react-icons/ri";
 import { GrTag, GrCircleQuestion } from "react-icons/gr";
 const LinkItems = [
-  { name: "TIME TRACKER", icon: MdAccessTime },
-  { name: "CALENDAR", icon: BsCalendar3 },
-  { name: "DASHBOARD", icon: RiFunctionLine },
-  { name: "REPORTS", icon: IoMdStats },
-  { name: "PROJECTS", icon: RiFileList3Line },
-  { name: "TEAM", icon: GrGroup, span: "ANALYZE" },
-  { name: "CLIENTS", icon: VscAccount },
-  { name: "TAGS", icon: GrTag },
-  { name: "SETTINGS", icon: FiSettings },
+  { name: "TIME TRACKER", icon: MdAccessTime, path: "/tracker" },
+  { name: "CALENDAR", icon: BsCalendar3, path: "/calendar" },
+  { name: "DASHBOARD", icon: RiFunctionLine, path: "/dashboard" },
+  { name: "REPORTS", icon: IoMdStats, path: "/" },
+  { name: "PROJECTS", icon: RiFileList3Line, path: "/project" },
+  { name: "TEAM", icon: GrGroup, span: "ANALYZE", path: "/" },
+  { name: "CLIENTS", icon: VscAccount, path: "/" },
+  { name: "TAGS", icon: GrTag, path: "/" },
+  { name: "SETTINGS", icon: FiSettings, path: "/" },
 ];
-import {Link as RouterLink} from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import { getItem } from "../Utils/localStorage";
+import { useDispatch } from "react-redux";
+import { logout } from "../Stores/Auth/auth.actions";
 
 export default function DashboardNavbar({ children }) {
+  const user = getItem("user");
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
@@ -106,9 +114,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
           <Text fontSize={"sm"} ml={"7"} color={"gray.500"}>
             {link?.span}
           </Text>
-          <NavItem key={link.name} icon={link.icon}>
-            {link.name}
-          </NavItem>
+          <RouterLink to={link.path}>
+            <NavItem key={link.name} icon={link.icon}>
+              {link.name}
+            </NavItem>
+          </RouterLink>
         </Box>
       ))}
     </Box>
@@ -152,6 +162,35 @@ const NavItem = ({ icon, children, ...rest }) => {
 };
 
 const MobileNav = ({ onOpen, ...rest }) => {
+  const user = getItem("user");
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    try {
+      dispatch(logout());
+      <Alert
+        status="success"
+        variant="subtle"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        textAlign="center"
+        height="200px"
+      >
+        <AlertIcon boxSize="40px" mr={0} />
+        <AlertTitle mt={4} mb={1} fontSize="lg">
+          Logged Out Successfully!
+        </AlertTitle>
+        <AlertDescription maxWidth="sm">
+          Get back soon. You have to be consistent towards your goal!
+        </AlertDescription>
+      </Alert>;
+    } catch (err) {
+      <Alert status="error">
+        <AlertIcon />
+        There was an error processing your request
+      </Alert>;
+    }
+  };
   return (
     <Flex
       ml={{ base: 0, md: 40 }}
@@ -171,18 +210,19 @@ const MobileNav = ({ onOpen, ...rest }) => {
         aria-label="open menu"
         icon={<FiMenu />}
       />
-
-      <Image
-        display={{ base: "flex", md: "none" }}
-        fontSize="2xl"
-        fontFamily="monospace"
-        fontWeight="bold"
-        src="https://clockify.me/assets/images/clockify-logo.svg"
-      />
+      <RouterLink to={"/"}>
+        <Image
+          display={{ base: "flex", md: "none" }}
+          fontSize="2xl"
+          fontFamily="monospace"
+          fontWeight="bold"
+          src="https://clockify.me/assets/images/clockify-logo.svg"
+        />
+      </RouterLink>
 
       <HStack spacing={{ base: "0", md: "8" }}>
         <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-          <Text>Name' workspace</Text>
+          <Text>{user}</Text>
           <Text
             border={"1px solid #8ad9fa"}
             fontSize={["2", "8", "12"]}
@@ -234,12 +274,20 @@ const MobileNav = ({ onOpen, ...rest }) => {
             <MenuList
               bg={useColorModeValue("white", "gray.900")}
               borderColor={useColorModeValue("gray.200", "gray.700")}
+              zIndex={999}
             >
               <MenuItem>Profile</MenuItem>
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem
+                cursor={"pointer"}
+                color={"red"}
+                fontWeight={500}
+                onClick={signoutHandler}
+              >
+                Sign out
+              </MenuItem>
             </MenuList>
           </Menu>
         </Flex>
