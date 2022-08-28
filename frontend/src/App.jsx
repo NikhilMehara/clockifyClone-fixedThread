@@ -8,8 +8,8 @@ function App() {
   return (
     <div>
    {/* <Upgrade/> */}
-     {/* <MainRoutes/> */}
-   <Payment/>
+     <MainRoutes/>
+   {/* <Payment/> */}
     </div>
   );
 }

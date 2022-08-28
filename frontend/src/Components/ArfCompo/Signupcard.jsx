@@ -65,7 +65,7 @@ import { SignupGet } from '../../Stores/Auth/auth.actions';
                   }}>
                   CREATE FREE ACCOUNT
                 </Button>
-                <GoogleButton/>
+                <GoogleButton onClick={(e)=>console.log('hi')}/>
               </Stack>
             </Stack>
           </Box>
