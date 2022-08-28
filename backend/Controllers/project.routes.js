@@ -20,14 +20,13 @@ projectController.get("/", async (req, res) => {
   }
 });
 
-projectController.post("/new/:mail", async (req, res) => {
-  const { mail } = req.params;
-  const user = await UserModel.findOne({ email: mail });
+projectController.post("/new", async (req, res) => {
+  const { name, tag, billable, useremail } = req.body;
+  const user = await UserModel.findOne({ email: useremail });
   if (!user) {
     return res.status(401).send("Unauthenticated User!");
   }
 
-  const { name, tag, billable, useremail } = req.body;
   try {
     const newProject = new ProjectModel({ name, tag, billable, useremail });
     newProject.save();
