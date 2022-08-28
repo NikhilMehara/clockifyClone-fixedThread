@@ -1,6 +1,6 @@
 const express = require("express");
 const ProjectModel = require("../Models/project.model");
-const UserModel = require("../models/user.model");
+const UserModel = require("../Models/user.model");
 
 const projectController = express.Router();
 
@@ -11,7 +11,7 @@ projectController.get("/", async (req, res) => {
     return res.status(401).send("Unauthenticated User!");
   }
 
-  const projects = await ProjectModel.find({ email: useremail });
+  const projects = await ProjectModel.find({ useremail: useremail });
 
   try {
     res.status(200).send(projects);
