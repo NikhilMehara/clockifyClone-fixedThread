@@ -7,7 +7,9 @@ import Upgrade from './Pages/Upgrade';
 function App() {
   return (
     <div>
-      <MainRoutes />
+   {/* <Upgrade/> */}
+     {/* <MainRoutes/> */}
+   <Payment/>
     </div>
   );
 }
