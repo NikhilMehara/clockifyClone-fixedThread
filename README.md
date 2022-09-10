@@ -51,7 +51,6 @@
 ## 🚀 Features
 - Login/Signup User Account
 - Create Your Own Projects & Tasks
-- Delete & Update Your Projects & Tasks
 - Track Your Time With Our Stopwatch
 - Keep A Record Of Your Tasks
 - Mark Events & Schedules On The Calendar(Only for Paid Users)
